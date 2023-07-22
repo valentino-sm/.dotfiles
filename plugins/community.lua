@@ -1,11 +1,37 @@
 return {
   "AstroNvim/astrocommunity",
+
+  -- THEMES
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+
+  -- PACKS
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.python" },
+
+  -- PLUGINS LOGIC
   { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.utility.nvim-toggler" },
+
+  -- PLUGINS VIEW
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  { import = "astrocommunity.git.diffview-nvim" },
+  {
+    "diffview.nvim",
+    cmd = "DiffviewOpen",
+    opts = {
+      view = {
+        default = {
+          winbar_info = true,
+        },
+        file_history = {
+          winbar_info = true,
+        },
+      },
+    },
+  },
   {
     "neoscroll.nvim",
     opts = {
@@ -34,9 +60,4 @@ return {
       },
     },
   },
-
-  { import = "astrocommunity.git.diffview-nvim" },
-  { import = "astrocommunity.utility.nvim-toggler" },
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.python" },
 }
