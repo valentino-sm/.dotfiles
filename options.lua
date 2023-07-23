@@ -3,7 +3,7 @@ return {
   --
   -- },
   g = {
-    autopairs_enabled = false, -- enable autopairs at start
+    -- autopairs_enabled = false, -- enable autopairs at start
 
     --   rainbow_delimiters = {
     -- --     -- strategy = {

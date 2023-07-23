@@ -13,6 +13,7 @@ return {
   -- PLUGINS LOGIC
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.utility.nvim-toggler" },
+  { import = "astrocommunity.editing-support.auto-save-nvim" },
 
   -- PLUGINS VIEW
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
