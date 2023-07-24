@@ -4,6 +4,14 @@ return {
   -- THEMES
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
+  {
+    "catppuccin",
+    opts = {
+      custom_highlights = {
+        TabLineFill = { bg = "#181825" },
+      },
+    },
+  },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
 
   -- PACKS
