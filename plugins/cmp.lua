@@ -40,7 +40,7 @@ return {
       },
       completion = {
         autocomplete = false,
-        completeopt = 'menu,menuone,noinsert'
+        completeopt = "menu,menuone,noinsert",
       },
       snippet = {
         expand = function(args) luasnip.lsp_expand(args.body) end,
@@ -75,7 +75,7 @@ return {
         -- ["<C-e>"] = cmp.mapping.close(),
         -- ["<C-e>"] = cmp.mapping(function(fallback)
         --   cmp.mapping.abort()
-        --   cmp.mapping.close() 
+        --   cmp.mapping.close()
         -- end, { "i", "c" }),
         ["<M-CR>"] = cmp.mapping.confirm { select = true },
         ["<Tab>"] = cmp.mapping(function(fallback)

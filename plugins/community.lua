@@ -9,6 +9,8 @@ return {
   -- PACKS
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.docker" },
 
   -- PLUGINS LOGIC
   { import = "astrocommunity.motion.nvim-surround" },
