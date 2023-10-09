@@ -1,7 +1,7 @@
 return {
-  -- opt = {
-  --
-  -- },
+  opt = {
+    exrc = true,
+  },
   g = {
     -- autopairs_enabled = false, -- enable autopairs at start
 
