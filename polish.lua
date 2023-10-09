@@ -25,3 +25,19 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 --   end,
 -- })
 -- vim.o.completeopt = 'menuone,select'
+-- dap
+-- require("dap-python").setup "/usr/bin/python3"
+-- local dap, dapui = require "dap", require "dapui"
+
+-- when to stop on exception (uncaught is providing post mortem debugging) (see dap-api)
+-- require("dap").set_exception_breakpoints { "raised", "uncaught" }
+
+require("dap").configurations.python = {
+  {
+    type = "python",
+    request = "launch",
+    name = "Launch file with external modules",
+    justMyCode = false,
+    program = "${file}",
+  },
+}
