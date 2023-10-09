@@ -1,6 +1,28 @@
 return {
   "AstroNvim/astrocommunity",
 
+  -- MEDIA
+  -- { import = "astrocommunity.media.pets-nvim" },
+  -- {
+  --   "pets.nvim",
+  --   opts = {
+  --     row = 6, -- the row (height) to display the pet at (higher row means the pet is lower on the screen), must be 1<=row<=10
+  --     col = 0, -- the column to display the pet at (set to high number to have it stay still on the right side)
+  --     speed_multiplier = 0.1, -- you can make your pet move faster/slower. If slower the animation will have lower fps.
+  --     default_pet = "dog", -- the pet to use for the PetNew command
+  --     default_style = "brown", -- the style of the pet to use for the PetNew command
+  --     random = false, -- wether to use a random pet for the PetNew command, ovverides default_pet and default_style
+  --     death_animation = true, -- animate the pet's death, set to false to feel less guilt -- currently no animations are available
+  --     popup = { -- popup options, try changing these if you see a rectangle around the pets
+  --       width = "100%", -- can be a string with percentage like "45%" or a number of columns like 45
+  --       winblend = 50, -- winblend value - see :h 'winblend' - only used if avoid_statusline is false
+  --       hl = { Normal = "Normal" }, -- hl is only set if avoid_statusline is true, you can put any hl group instead of "Normal"
+  --       avoid_statusline = false, -- if winblend is 100 then the popup is invisible and covers the statusline, if that
+  --       -- doesn't work for you then set this to true and the popup will use hl and will be spawned above the statusline (hopefully)
+  --     },
+  --   },
+  -- },
+
   -- THEMES
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
@@ -13,21 +35,35 @@ return {
     },
   },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  { import = "astrocommunity.colorscheme.monokai-pro-nvim" },
 
   -- PACKS
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
-  { "linux-cultist/venv-selector.nvim", enabled = false },
+  -- { "linux-cultist/venv-selector.nvim", enabled = false },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.docker" },
 
   -- PLUGINS LOGIC
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.utility.nvim-toggler" },
+  { import = "astrocommunity.workflow.hardtime-nvim" },
+  {
+    "hardtime.nvim",
+    opts = {
+      disabled_keys = {
+        ["<UP>"] = {},
+        ["<DOWN>"] = {},
+        ["<LEFT>"] = {},
+        ["<RIGHT>"] = {},
+      },
+      max_time = 0,
+    },
+  },
 
   -- PLUGINS VIEW
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  { import = "astrocommunity.scrolling.neoscroll-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   {
     "diffview.nvim",
@@ -43,21 +79,6 @@ return {
       },
     },
   },
-  {
-    "neoscroll.nvim",
-    opts = {
-      mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
-      hide_cursor = true, -- Hide cursor while scrolling
-      stop_eof = true, -- Stop at <EOF> when scrolling downwards
-      respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-      cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-      easing_function = "quadratic", -- Default easing function
-      pre_hook = nil, -- Function to run before the scrolling animation starts
-      post_hook = nil, -- Function to run after the scrolling animation ends
-      performance_mode = false, -- Disable "Performance Mode" on all buffers.
-    },
-  },
-
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   {
     "nvim-scrollbar",
