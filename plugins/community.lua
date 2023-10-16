@@ -63,7 +63,7 @@ return {
   },
 
   -- PLUGINS VIEW
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  -- { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   {
     "diffview.nvim",
