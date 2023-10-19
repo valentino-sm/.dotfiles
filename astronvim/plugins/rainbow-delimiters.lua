@@ -1,13 +1,15 @@
-return {
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    event = "User AstroFile",
-    config = function(_, opts) require("rainbow-delimiters.setup").setup(opts) end,
-  },
-  {
-    "catppuccin/nvim",
-    optional = true,
-    opts = { integrations = { rainbow_delimiters = true } },
-  },
-}
+return {}
+-- return {
+--   {
+--     "HiPhish/rainbow-delimiters.nvim",
+--     dependencies = "nvim-treesitter/nvim-treesitter",
+--     event = "User AstroFile",
+--     main = "rainbow-delimiters.setup",
+--     -- config = function(_, opts) require("rainbow-delimiters.setup").setup(opts) end,
+--   },
+--   {
+--     "catppuccin/nvim",
+--     optional = true,
+--     opts = { integrations = { rainbow_delimiters = true } },
+--   },
+-- }
