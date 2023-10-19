@@ -41,6 +41,7 @@ return {
   -- PACKS
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python-ruff" },
   -- { "linux-cultist/venv-selector.nvim", enabled = false },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.docker" },
