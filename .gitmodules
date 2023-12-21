@@ -3,12 +3,12 @@
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
 
-[submodule "astronvim"]
-  path = astronvim_dist
-  url = https://github.com/AstroNvim/AstroNvim
+[submodule "nvchad_dist"]
+	path = nvchad_dist
+	url = https://github.com/NvChad/NvChad
   shallow = true
 
-[submodule "nvchad"]
-  path = nvchad_dist
-  url = https://github.com/NvChad/NvChad
+[submodule "astronvim_dist"]
+	path = astronvim_dist
+	url = https://github.com/AstroNvim/AstroNvim
   shallow = true
