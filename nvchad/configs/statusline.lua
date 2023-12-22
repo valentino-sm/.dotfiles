@@ -98,24 +98,31 @@ M.fileInfo = function()
     name = " " .. name .. " "
   end
 
-  -- return "%#St_file_info#" .. icon .. name .. "%#St_file_sep#" .. sep_r
-  return "%#St_gitIcons#" .. icon .. name
-end
-
-M.git = function()
   if not vim.b[stbufnr()].gitsigns_head or vim.b[stbufnr()].gitsigns_git_status then
-    return ""
+    return "%#St_gitIcons#" .. icon .. name
   end
-
+  
   local git_status = vim.b[stbufnr()].gitsigns_status_dict
 
   local added = git_status.added and ("  " .. git_status.added) or ""
   local changed = git_status.changed and ("  " .. git_status.changed) or ""
   local removed = git_status.removed and ("  " .. git_status.removed) or ""
+
+  -- return "%#St_file_info#" .. icon .. name .. "%#St_file_sep#" .. sep_r
+  return "%#St_gitIcons#" .. icon .. name .. added .. changed .. removed -- DIRTY HACK NAMING FOR HIGHLIGHT
+end
+
+M.git = function()
+  if not vim.b[stbufnr()].gitsigns_head or vim.b[stbufnr()].gitsigns_git_status then
+    return "%#St_file_sep#" .. sep_r
+  end
+
+  local git_status = vim.b[stbufnr()].gitsigns_status_dict
+
   local branch_name = "  " .. git_status.head
 
   -- return "%#St_gitIcons#" .. branch_name .. added .. changed .. removed
-  return "%#St_file_info#" .. branch_name .. added .. changed .. removed .. " " .. "%#St_file_sep#" .. sep_r
+  return "%#St_file_info#" .. branch_name .. " " .. "%#St_file_sep#" .. sep_r -- DIRTY HACK NAMING FOR HIGHLIGHT
 end
 
 return {
