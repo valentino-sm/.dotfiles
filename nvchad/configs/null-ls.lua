@@ -10,14 +10,14 @@ local sources = {
   b.diagnostics.hadolint.with { filetypes = { "dockerfile" } },
 
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
+  b.formatting.deno_fmt.with { filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with { filetypes = { "yaml", "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
   -- Lua
-  b.formatting.stylua,
+  b.formatting.stylua.with { filetypes = { "lua" } },
 
   -- cpp
-  b.formatting.clang_format,
+  b.formatting.clang_format.with { filetypes = { "cpp", "c" } },
 }
 
 null_ls.setup {
