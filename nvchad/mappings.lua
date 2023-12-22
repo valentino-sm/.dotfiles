@@ -28,6 +28,27 @@ M.tabufline = {
       "Goto prev buffer",
     },
 
+    [">b"] = {
+      function()
+        require("nvchad.tabufline").move_buf(1)
+      end,
+      "Move buffer next",
+    },
+
+    ["<b"] = {
+      function()
+        require("nvchad.tabufline").move_buf(-1)
+      end,
+      "Move buffer prev",
+    },
+
+    ["<leader>cb"] = {
+      function()
+        require("nvchad.tabufline").closeAllBufs()
+      end,
+      "Close buffer",
+    },
+
     -- close buffer + hide terminal buffer
     -- ["<leader>x"] = {
     --   function()
