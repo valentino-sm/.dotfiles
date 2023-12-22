@@ -2,33 +2,28 @@
     link:
       relink: true
 
-- clean: ["~"]
-
-- link:
-    ~/.config/astronvim/nvim:
-      create: true
-      path: astronvim_dist
-    astronvim_dist/lua/user:
-      path: astronvim
-    ~/.local/bin/na:
-      create: true
-      path: bin/na
-    
-    ~/.config/nvchad/nvim:
-      create: true
-      path: nvchad_dist
-    nvchad_dist/lua/custom:
-      path: nvchad
-    ~/.local/bin/nn:
-      create: true
-      path: bin/nn
-    # ~/.tmux.conf: tmux.conf
-    # ~/.vim: vim
-    # ~/.vimrc: vimrc
-
-# - create:
-# - ~/downloads
-# - ~/.vim/undo-history
+# - clean: ["~"]
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+
+- link:
+    astronvim_dist/lua/user: astronvim
+    ~/.config/astronvim/nvim:
+      path: astronvim_dist
+      create: true
+    ~/.local/bin/na:
+      path: bin/na
+      create: true
+
+    nvchad_dist/lua/custom: nvchad
+    ~/.config/nvchad/nvim:
+      path: nvchad_dist
+      create: true
+    ~/.local/bin/nn:
+      path: bin/nn
+      create: true
+    # ~/.tmux.conf: tmux.conf
+# - create:
+# - ~/downloads
+# - ~/.vim/undo-history
