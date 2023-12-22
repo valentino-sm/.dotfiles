@@ -9,11 +9,19 @@ M.override = {
   Comment = {
     italic = true,
   },
+  St_gitIcons = {
+    bold = false,
+  },
+  St_file_info = { bold = true },
 }
 
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  St_gitIcons = {
+    bold = false,
+  },
+  St_file_info = { bold = true },
 }
 
 return M
