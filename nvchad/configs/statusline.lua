@@ -81,7 +81,9 @@ end
 
 M.fileInfo = function()
   local icon = " 󰈚 "
+  -- local dir_name = fn.fnamemodify(fn.getcwd(), ":t")
   local path = vim.api.nvim_buf_get_name(stbufnr())
+  path = fn.fnamemodify(path, ":~:.")
   -- local name = (path == "" and "Empty ") or path:match "([^/\\]+)[/\\]*$"
   local name = (path == "" and "Empty ") or path
 
