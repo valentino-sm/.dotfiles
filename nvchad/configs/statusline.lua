@@ -13,13 +13,9 @@ local separators = (type(sep_style) == "table" and sep_style) or default_sep_ico
 local sep_l = separators["left"]
 local sep_r = separators["right"]
 
-function stbufnr()
-  return vim.api.nvim_win_get_buf(vim.g.statusline_winid)
-end
+function stbufnr() return vim.api.nvim_win_get_buf(vim.g.statusline_winid) end
 
-local function is_activewin()
-  return vim.api.nvim_get_current_win() == vim.g.statusline_winid
-end
+local function is_activewin() return vim.api.nvim_get_current_win() == vim.g.statusline_winid end
 
 local M = {}
 
@@ -68,9 +64,7 @@ M.modes = {
 }
 
 M.mode = function()
-  if not is_activewin() then
-    return ""
-  end
+  if not is_activewin() then return "" end
 
   local m = vim.api.nvim_get_mode().mode
   local current_mode = "%#" .. M.modes[m][2] .. "#" .. "  " .. M.modes[m][1]
@@ -101,7 +95,7 @@ M.fileInfo = function()
   if not vim.b[stbufnr()].gitsigns_head or vim.b[stbufnr()].gitsigns_git_status then
     return "%#St_gitIcons#" .. icon .. name
   end
-  
+
   local git_status = vim.b[stbufnr()].gitsigns_status_dict
 
   local added = git_status.added and ("  " .. git_status.added) or ""

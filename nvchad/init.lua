@@ -6,13 +6,13 @@
 --   command = "tabdo wincmd =",
 -- })
 
-vim.diagnostic.config({
-	float = {
-		focused = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
-})
+vim.diagnostic.config {
+  float = {
+    focused = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
