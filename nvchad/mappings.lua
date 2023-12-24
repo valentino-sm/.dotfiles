@@ -1,82 +1,120 @@
 ---@type MappingsTable
 local M = {}
 
+local sections = {
+	f = "Find",
+	p = "Packages",
+	l = "LSP",
+	u = "UI/UX",
+	b = "Buffers",
+	bs = "Sort Buffers",
+	d = "Debugger",
+	g = "Git",
+	S = "Session",
+	t = "Terminal",
+}
+
+M.disabled = {
+	n = {
+		["<leader>b"] = "",
+	},
+}
+
 M.general = {
-  n = {
-    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<C-q>"] = { "<cmd>qa!<cr>", "Force quit" },
-  },
-  v = {
-    -- [">"] = { ">gv", "indent"},
-  },
+	n = {
+		-- [";"] = { ":", "enter command mode", opts = { nowait = true } },
+		["<leader>q"] = { "<cmd>confirm q<cr>", "Quit" },
+		["<leader>Q"] = { "<cmd>confirm qall<cr>", "Quit all" },
+		["<C-q>"] = { "<cmd>qa!<cr>", "Force quit" },
+
+		["<leader>n"] = { "<cmd>enew<cr>", "New File" },
+
+		["|"] = { "<cmd>vsplit<cr>", "Vertical Split" },
+		["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
+	},
+	v = {
+		-- [">"] = { ">gv", "indent"},
+	},
 }
 
 M.tabufline = {
-  n = {
-    -- cycle through buffers
-    ["]b"] = {
-      function()
-        require("nvchad.tabufline").tabuflineNext()
-      end,
-      "Goto next buffer",
-    },
+	n = {
+		["<leader>bn"] = {
+			"<cmd>tabnew<cr>",
+			"New tab",
+		},
 
-    ["[b"] = {
-      function()
-        require("nvchad.tabufline").tabuflinePrev()
-      end,
-      "Goto prev buffer",
-    },
+		["]b"] = {
+			function()
+				require("nvchad.tabufline").tabuflineNext()
+			end,
+			"Goto next buffer",
+		},
 
-    [">b"] = {
-      function()
-        require("nvchad.tabufline").move_buf(1)
-      end,
-      "Move buffer next",
-    },
+		["[b"] = {
+			function()
+				require("nvchad.tabufline").tabuflinePrev()
+			end,
+			"Goto prev buffer",
+		},
 
-    ["<b"] = {
-      function()
-        require("nvchad.tabufline").move_buf(-1)
-      end,
-      "Move buffer prev",
-    },
+		[">b"] = {
+			function()
+				require("nvchad.tabufline").move_buf(1)
+			end,
+			"Move buffer next",
+		},
 
-    ["<leader>cb"] = {
-      function()
-        require("nvchad.tabufline").closeAllBufs()
-      end,
-      "Close buffer",
-    },
+		["<b"] = {
+			function()
+				require("nvchad.tabufline").move_buf(-1)
+			end,
+			"Move buffer prev",
+		},
 
-    -- close buffer + hide terminal buffer
-    -- ["<leader>x"] = {
-    --   function()
-    --     require("nvchad.tabufline").close_buffer()
-    --   end,
-    --   "Close buffer",
-    -- },
-  },
+		["<leader>bc"] = {
+			function()
+				require("nvchad.tabufline").closeAllBufs()
+			end,
+			"Close all buffers",
+		},
+	},
 }
 
 M.nvimtree = {
-  n = {
-    -- toggle
-    -- ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-
-    -- focus
-    ["<leader>o"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
-  },
+	n = {
+		["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+		["<leader>o"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+	},
 }
 
 M.telescope = {
-  n = {
-    -- pick a hidden term
-    ["<leader>fs"] = { "<cmd> Telescope keymaps <CR>", "Find keymaps" },
-  },
+	n = {
+		["<leader>fs"] = { "<cmd> Telescope keymaps <CR>", "Find keymaps" },
+	},
 }
 
--- more keybinds!
+M.ui = {
+	n = {
+		["<leader>un"] = { "<cmd> set nu! <CR>", "Toggle line number" },
+		["<leader>ur"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+	},
+}
+
+M.packages = {
+	n = {
+		["<leader>pl"] = { "<cmd>Lazy<cr>", "Lazy Plugins" },
+	},
+}
+
+M.sessions = {
+	n = {
+		["<leader>Sl"] = { "<cmd>SessionManager! load_last_session<cr>", "Load last session" },
+		["<leader>Ss"] = { "<cmd>SessionManager! save_current_session<cr>", "Save this session" },
+		["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", "Delete session" },
+		["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", "Search sessions" },
+		["<leader>S."] = { "<cmd>SessionManager! load_current_dir_session<cr>", "Load current directory session" },
+	},
+}
 
 return M

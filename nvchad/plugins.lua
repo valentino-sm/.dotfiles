@@ -106,6 +106,12 @@ local plugins = {
     end,
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+
+  {
+    "Shatur/neovim-session-manager",
+    event = "BufWritePost",
+    cmd = "SessionManager",
+  },
 }
 
 return plugins
