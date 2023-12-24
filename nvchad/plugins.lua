@@ -100,6 +100,67 @@ local plugins = {
     event = "BufWritePost",
     cmd = "SessionManager",
   },
+
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    config = true,
+  },
+
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "BufReadPost",
+    config = function()
+      dofile(vim.g.base46_cache .. "rainbowdelimiters")
+      local rainbow_delimiters = require "rainbow-delimiters"
+
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          vim = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
+    end,
+  },
+
+  {
+    "valentino-sm/neoscroll.nvim",
+    branch = "time-scale",
+
+    keys = { "<C-d>", "<C-u>" },
+    opts = {
+      time_scale = 0.5,
+      mappings = {
+        "<C-u>",
+        "<C-d>",
+      },
+      hide_cursor = true, -- Hide cursor while scrolling
+      stop_eof = true, -- Stop at <EOF> when scrolling downwards
+      respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+      cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+      easing_function = "quadratic", -- Default easing function
+      pre_hook = nil, -- Function to run before the scrolling animation starts
+      post_hook = nil, -- Function to run after the scrolling animation ends
+      performance_mode = false, -- Disable "Performance Mode" on all buffers.
+    },
+  },
 }
 
 return plugins
