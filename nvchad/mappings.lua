@@ -111,4 +111,15 @@ M.sessions = {
   },
 }
 
+M.git = {
+  n = {
+    ["<leader>gg"] = { "<cmd>LazyGit<cr>", "Open LazyGit" },
+    ["<leader>gG"] = { "<cmd>LazyGitConfig<cr>", "Open LazyGitConfig" },
+
+    ["<leader>gh"] = { "<cmd>DiffviewFileHistory<cr>", "Open DiffviewFileHistory" },
+    ["<leader>gd"] = { "<cmd>DiffviewOpen<cr>", "Open Diffview" },
+    ["<leader>gc"] = { "<cmd>DiffviewClose<cr>", "Close Diffview" },
+  },
+}
+
 return M

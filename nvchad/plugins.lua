@@ -103,11 +103,13 @@ local plugins = {
 
   {
     "kdheepak/lazygit.nvim",
-    cmd = "LazyGit",
+    cmd = { "LazyGit", "LazyGitConfig" },
   },
 
   {
     "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
   },
 
