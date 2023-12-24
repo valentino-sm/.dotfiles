@@ -105,6 +105,7 @@ local plugins = {
       -- end, { noremap = true, desc = "Toggle Codeium active" })
     end,
   },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }
 
 return plugins
