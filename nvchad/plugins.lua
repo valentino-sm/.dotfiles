@@ -93,7 +93,12 @@ local plugins = {
       -- end, { noremap = true, desc = "Toggle Codeium active" })
     end,
   },
+
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, opts) table.insert(opts.extensions_list, "fzf") end,
+  },
 
   {
     "Shatur/neovim-session-manager",
