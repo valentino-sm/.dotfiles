@@ -94,6 +94,47 @@ local plugins = {
 
   require "custom.configs.rainbow-delimiters",
   require "custom.configs.neoscroll",
+
+  {
+    "nguyenvukhang/nvim-toggler",
+    event = { "BufWritePost", "InsertEnter" },
+    keys = { { "<leader>i", desc = "Toggle" } },
+    opts = function(_, opts)
+      opts.remove_default_keybindings = true
+      vim.keymap.set({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle)
+    end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function() require("nvim-surround").setup {} end,
+  },
+
+  {
+    "petertriho/nvim-scrollbar",
+    event = "BufReadPre",
+    opts = function(_, opts)
+      opts.max_lines = 10000
+      opts.handle = {
+        blend = 90,
+        color = "#DDAACC",
+      }
+      opts.handlers = {
+        gitsigns = true,
+      }
+    end,
+  },
+
+  {
+    "jinh0/eyeliner.nvim",
+    event = "BufReadPre",
+    opts = {
+      highlight_on_key = true,
+      dim = false,
+    },
+  },
 }
 
 return plugins
