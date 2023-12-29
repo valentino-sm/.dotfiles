@@ -38,6 +38,9 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
+    -- bash stuff
+    "beautysh",
+
     -- python stuff
     "black",
     "isort",
