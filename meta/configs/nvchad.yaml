@@ -1,0 +1,13 @@
+- defaults:
+    link:
+      relink: true
+
+- link:
+    nvchad_dist/lua/custom: nvchad
+    ~/.config/nvchad/nvim:
+      path: nvchad_dist
+      create: true
+    ~/.config/nvchad/.gitconfig: ~/.gitconfig
+    ~/.local/bin/nn:
+      path: bin/nn
+      create: true

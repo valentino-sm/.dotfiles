@@ -1,0 +1,13 @@
+- defaults:
+    link:
+      relink: true
+
+- link:
+    astronvim_dist/lua/user: astronvim
+    ~/.config/astronvim/nvim:
+      path: astronvim_dist
+      create: true
+    ~/.config/astronvim/.gitconfig: ~/.gitconfig
+    ~/.local/bin/na:
+      path: bin/na
+      create: true
