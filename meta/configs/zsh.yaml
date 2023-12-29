@@ -1,0 +1,9 @@
+- defaults:
+    link:
+      relink: true
+
+- link:
+    ~/.zshrc: zsh/.zshrc
+    ~/.oh-my-zsh-custom: zsh/oh-my-zsh-custom
+
+    ~/.oh-my-zsh: zsh/oh-my-zsh

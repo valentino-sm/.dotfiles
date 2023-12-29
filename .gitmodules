@@ -2,6 +2,7 @@
 	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+  shallow = true
 
 [submodule "nvchad_dist"]
 	path = nvchad_dist
@@ -11,4 +12,25 @@
 [submodule "astronvim_dist"]
 	path = astronvim_dist
 	url = https://github.com/AstroNvim/AstroNvim
+  shallow = true
+
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh/
+  shallow = true
+[submodule "zsh/oh-my-zsh-custom/plugins/fast-syntax-highlighting"]
+	path = zsh/oh-my-zsh-custom/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
+  shallow = true
+[submodule "zsh/oh-my-zsh-custom/plugins/zsh-autocomplete"]
+	path = zsh/oh-my-zsh-custom/plugins/zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete
+  shallow = true
+[submodule "zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions"]
+	path = zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+  shallow = true
+[submodule "zsh/oh-my-zsh-custom/plugins/zsh-hist"]
+	path = zsh/oh-my-zsh-custom/plugins/zsh-hist
+	url = https://github.com/marlonrichert/zsh-hist
   shallow = true
