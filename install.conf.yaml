@@ -26,7 +26,7 @@
       path: bin/nn
       create: true
 
-    # ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux.conf
 # - create:
 # - ~/downloads
 # - ~/.vim/undo-history
