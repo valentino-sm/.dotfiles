@@ -136,7 +136,7 @@ export LC_ALL="en_US.UTF-8"
 # alias gdu='gdu-go'
 alias j="jump"
 
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
 bindkey "^[l" forward-word
 bindkey "^[h" backward-word
