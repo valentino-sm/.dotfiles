@@ -1,0 +1,25 @@
+- omnipkg:
+    - update
+    - upgrade
+
+- omnipkg:
+    - install:
+        # common
+        - openssh
+        - htop
+
+        - zsh
+        - tmux
+        - zoxide
+
+        # should be in AUR
+        - ghq
+        - 2fa
+
+        # for development
+        - [neovim, nvim]
+        - [python3, python]
+        - lazygit
+        - luarocks
+        - npm
+        - ripgrep

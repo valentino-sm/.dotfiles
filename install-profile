@@ -13,7 +13,7 @@ DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
+OMNIPKGPLUGIN="${BASE_DIR}/${META_DIR}/dotbot-omnipkg/omnipkg.py"
 
 cd "${BASE_DIR}"
 git -C "${BASE_DIR}" submodule sync --quiet --recursive
@@ -33,7 +33,11 @@ for config in ${CONFIGS} ${@}; do
     suffix="-sudo"
     echo -e "$(<"${BASE_DIR}/${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}")\n$(<"${BASE_DIR}/${META_DIR}/${CONFIG_DIR}/${config%"$suffix"}${CONFIG_SUFFIX}")" > "$configFile"
 
-    cmd=("${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "$configFile")
+    cmd=("${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+            -d "${BASE_DIR}" \
+            -c "$configFile" \
+            -p "${OMNIPKGPLUGIN}" \
+        )
 
     if [[ $config == *"sudo"* ]]; then
         cmd=(sudo "${cmd[@]}")
