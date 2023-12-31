@@ -73,13 +73,16 @@ M.ui = {
 
 M.packages = {
   n = {
+    ["<leader>pa"] = { "<cmd> NvChadUpdate <cr>", "Update NvChad" },
+
     ["<leader>pi"] = { function() require("lazy").install() end, "Plugins Install" },
     ["<leader>ps"] = { function() require("lazy").home() end, "Plugins Status" },
     ["<leader>pS"] = { function() require("lazy").sync() end, "Plugins Sync" },
     ["<leader>pu"] = { function() require("lazy").check() end, "Plugins Check Updates" },
     ["<leader>pU"] = { function() require("lazy").update() end, "Plugins Update" },
 
-    ["<leader>pa"] = { "<cmd> NvChadUpdate <cr>", "Update NvChad" },
+    ["<leader>pm"] = { "<cmd>Mason<cr>", "Mason Installer" },
+    ["<leader>pM"] = { "<cmd>MasonUpdateAll<cr>", "Mason Update" },
   },
 }
 

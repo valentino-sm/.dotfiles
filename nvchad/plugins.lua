@@ -135,6 +135,12 @@ local plugins = {
       dim = false,
     },
   },
+
+  {
+    "RubixDev/mason-update-all",
+    cmd = "MasonUpdateAll",
+    opts = {},
+  }
 }
 
 return plugins
