@@ -37,35 +37,16 @@ M.general = {
 
 M.tabufline = {
   n = {
-    ["<leader>bn"] = {
-      "<cmd>tabnew<cr>",
-      "New tab",
-    },
+    ["]b"] = { function() require("nvchad.tabufline").tabuflineNext() end, "Goto next buffer" },
+    ["[b"] = { function() require("nvchad.tabufline").tabuflinePrev() end, "Goto prev buffer" },
+    [">b"] = { function() require("nvchad.tabufline").move_buf(1) end, "Move buffer next" },
+    ["<b"] = { function() require("nvchad.tabufline").move_buf(-1) end, "Move buffer prev" },
 
-    ["]b"] = {
-      function() require("nvchad.tabufline").tabuflineNext() end,
-      "Goto next buffer",
-    },
+    ["<leader>bc"] = { function() require("nvchad.tabufline").closeAllBufs() end, "Close all buffers" },
 
-    ["[b"] = {
-      function() require("nvchad.tabufline").tabuflinePrev() end,
-      "Goto prev buffer",
-    },
-
-    [">b"] = {
-      function() require("nvchad.tabufline").move_buf(1) end,
-      "Move buffer next",
-    },
-
-    ["<b"] = {
-      function() require("nvchad.tabufline").move_buf(-1) end,
-      "Move buffer prev",
-    },
-
-    ["<leader>bc"] = {
-      function() require("nvchad.tabufline").closeAllBufs() end,
-      "Close all buffers",
-    },
+    ["<leader>bn"] = { "<cmd>tabnew<cr>", "New tab" },
+    ["]t"] = { function() vim.cmd.tabnext() end, "Next tab" },
+    ["[t"] = { function() vim.cmd.tabprevious() end, "Previous tab" },
   },
 }
 
