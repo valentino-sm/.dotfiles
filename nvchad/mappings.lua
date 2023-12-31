@@ -86,6 +86,7 @@ M.ui = {
   n = {
     ["<leader>un"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>ur"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>ut"] = { "<cmd> set list! <CR>", "Toggle invisible chars" },
   },
 }
 
