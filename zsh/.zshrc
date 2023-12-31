@@ -94,7 +94,7 @@ plugins=(
 
 #For pj plugin
 PROJECT_PATHS=(~/Developer)
-EDITOR=nvim
+EDITOR=na
 
 if [ -z "$_zsh_custom_scripts_loaded" ]; then
     _zsh_custom_scripts_loaded=1
@@ -108,11 +108,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-export LC_ALL="en_US.UTF-8"
+export LANG=en_US.UTF-8
+# export LC_ALL="en_US.UTF-8"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -120,6 +120,7 @@ export LC_ALL="en_US.UTF-8"
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='nn'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -140,3 +141,5 @@ bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 bindkey "^[l" forward-word
 bindkey "^[h" backward-word
+
+unsetopt BEEP
