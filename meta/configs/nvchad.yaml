@@ -7,7 +7,7 @@
     ~/.config/nvchad/nvim:
       path: nvchad_dist
       create: true
-    ~/.config/nvchad/.gitconfig: ~/.gitconfig
+    ~/.config/nvchad/.gitconfig: gitconfig
     ~/.local/bin/nn:
       path: bin/nn
       create: true
