@@ -140,7 +140,15 @@ local plugins = {
     "RubixDev/mason-update-all",
     cmd = "MasonUpdateAll",
     opts = {},
-  }
+  },
+
+  {
+    "andreadev-it/shade.nvim",
+    lazy = false,
+    opts = {
+      exclude_filetypes = { "NvimTree" },
+    }
+  },
 }
 
 return plugins
