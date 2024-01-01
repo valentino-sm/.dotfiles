@@ -15,13 +15,28 @@ local sections = {
 }
 
 M.disabled = {
+  i = {
+    ["<C-b>"] = "",
+  },
   n = {
     ["<leader>b"] = "",
+    ["<leader>ch"] = "",
+    ["<leader>n"] = "",
+    ["<leader>rn"] = "",
+    ["<leader>rh"] = "",
+    ["<leader>ph"] = "",
+    ["<leader>td"] = "",
+    ["<leader>th"] = "",
   },
 }
 
 M.general = {
+  i = {
+    ["<C-a>"] = { "<ESC>^i", "Beginning of line" },
+  },
   n = {
+    ["<C-c>"] = { "<cmd> noh <CR><cmd> %y+ <CR>", "Copy whole file" },
+
     -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>q"] = { "<cmd>confirm q<cr>", "Quit" },
     ["<leader>Q"] = { "<cmd>confirm qall<cr>", "Quit all" },
@@ -73,9 +88,11 @@ M.ui = {
 
 M.packages = {
   n = {
-    ["<leader>pa"] = { "<cmd> NvChadUpdate <cr>", "Update NvChad" },
+    ["<leader>pa"] = { "<cmd> NvChadUpdate <cr>", "NvChad update" },
+    ["<leader>pc"] = { "<cmd> NvCheatsheet <CR>", "NvChad cheatsheet" },
+    ["<leader>ph"] = { "<cmd> Telescope themes <CR>", "NvChad themes" },
 
-    ["<leader>pi"] = { function() require("lazy").install() end, "Plugins Install" },
+    ["<leader>pn"] = { function() require("lazy").install() end, "Plugins Install" },
     ["<leader>ps"] = { function() require("lazy").home() end, "Plugins Status" },
     ["<leader>pS"] = { function() require("lazy").sync() end, "Plugins Sync" },
     ["<leader>pu"] = { function() require("lazy").check() end, "Plugins Check Updates" },
@@ -102,8 +119,12 @@ M.git = {
     ["<leader>gG"] = { "<cmd>LazyGitConfig<cr>", "Open LazyGitConfig" },
 
     ["<leader>gh"] = { "<cmd>DiffviewFileHistory<cr>", "Open DiffviewFileHistory" },
-    ["<leader>gd"] = { "<cmd>DiffviewOpen<cr>", "Open Diffview" },
+    ["<leader>go"] = { "<cmd>DiffviewOpen<cr>", "Open Diffview" },
     ["<leader>gc"] = { "<cmd>DiffviewClose<cr>", "Close Diffview" },
+
+    ["<leader>gr"] = { function() require("gitsigns").reset_hunk() end, "Reset hunk" },
+    ["<leader>gp"] = { function() require("gitsigns").preview_hunk() end, "Preview hunk" },
+    ["<leader>gd"] = { function() require("gitsigns").toggle_deleted() end, "Toggle deleted" },
   },
 }
 
