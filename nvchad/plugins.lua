@@ -71,7 +71,18 @@ local plugins = {
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "nvim-telescope/telescope.nvim",
-    opts = function(_, opts) table.insert(opts.extensions_list, "fzf") end,
+    opts = function(_, opts)
+      table.insert(opts.extensions_list, "fzf")
+      opts.extensions = opts.extensions or {}
+      table.insert(opts.extensions, {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+      })
+    end,
   },
 
   {
@@ -147,7 +158,7 @@ local plugins = {
     lazy = false,
     opts = {
       exclude_filetypes = { "NvimTree" },
-    }
+    },
   },
 }
 
