@@ -1,3 +1,10 @@
+- if:
+    # check for dnf
+    cond: "[ -f /usr/bin/dnf ]"
+    met:
+      - shell:
+          - command: dnf install -y sudo
+
 - omnipkg:
     - update
     - upgrade
@@ -5,7 +12,6 @@
 - omnipkg:
     - install:
         # common
-        - sudo
         - openssh
         - zsh
         - tmux
@@ -40,7 +46,7 @@
       - shell:
           # install nvim from github
           # EPEL repo does not have latest version
-          - command: if [ ! -d ~/.local/share/nvim-linux64 ]; then curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz | tar -xz && mv nvim-linux64 ~/.local/share/nvim-linux64; fi
+          - command: if [ ! -d ~/.local/share/nvim-linux64 ]; then curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz | tar -xz && mkdir -p ~/.local/share && mv nvim-linux64 ~/.local/share/nvim-linux64; fi
             stdin: false
             stdout: true
             stderr: true
