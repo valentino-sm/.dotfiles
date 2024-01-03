@@ -44,6 +44,8 @@
 	contributors = shortlog --summary --numbered
 	# Show the user email for the current repository.
 	whoami = config user.email
+  # Fast-forward to the latest commit on the current branch.
+	ff = merge --ff-only @{upstream}
 
 [apply]
 	# Detect whitespace errors when applying a patch.
