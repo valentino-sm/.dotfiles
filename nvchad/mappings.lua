@@ -88,7 +88,7 @@ M.ui = {
 
 M.packages = {
   n = {
-    ["<leader>pa"] = { "<cmd> NvChadUpdate <cr>", "NvChad update" },
+    ["<leader>pa"] = { "<cmd> NvChadUpdate <CR><cmd> MasonUpdateAll <CR>", "NvChad update" },
     ["<leader>pc"] = { "<cmd> NvCheatsheet <CR>", "NvChad cheatsheet" },
     ["<leader>ph"] = { "<cmd> Telescope themes <CR>", "NvChad themes" },
 
