@@ -5,21 +5,103 @@
 - omnipkg:
     - install:
         # common
+        - sudo
         - openssh
-        - htop
-
         - zsh
         - tmux
-        - zoxide
+        - [python3, python]
 
-        # should be in AUR
-        - ghq
-        - 2fa
+- if:
+    # check for dnf
+    cond: "[ -f /usr/bin/dnf ]"
+    met:
+      - omnipkg:
+          - install:
+              - util-linux-user # for chsh
+              - yum-utils # for repoquery -q --installed --whatrequires python3
+
+              - glibc-locale-source # for localedef
+              - glibc-langpack-en # for localedef
+
+              - epel-release # Extra Packages for Enterprise Linux
+              # - xz # for Nix install
+
+              # nvim dependencies
+              - compat-lua-libs
+              - libtermkey
+              - libtree-sitter
+              - libvterm
+              - luajit
+              - luajit2.1-luv
+              - msgpack
+              - unibilium
+              - xsel
+
+      - shell:
+          # install nvim from github
+          # EPEL repo does not have latest version
+          - command: if [ ! -d ~/.local/share/nvim-linux64 ]; then curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz | tar -xz && mv nvim-linux64 ~/.local/share/nvim-linux64; fi
+            stdin: false
+            stdout: true
+            stderr: true
+            description: Install nvim
+            quiet: false
+
+      - link:
+          ~/.local/bin/nvim:
+            path: ~/.local/share/nvim-linux64/bin/nvim
+            create: true
+            relink: true
+
+      - shell:
+          - [dnf copr enable -y atim/lazygit, Enable copr lazygit]
+
+    unmet:
+      # for other distros (not dnf)
+      - omnipkg:
+          - install:
+              - [neovim, nvim]
+
+              # should be in AUR
+              - ghq
+              - 2fa
+
+- omnipkg:
+    - install:
+        # Common packages for all distros after EPEL enabled
+        - htop
+        - zoxide
+        - lazygit
 
         # for development
-        - [neovim, nvim]
-        - [python3, python]
-        - lazygit
-        - luarocks
         - npm
+        - luarocks
         - ripgrep
+
+# change shell
+- shell:
+    - [chsh -s /usr/bin/zsh, Change shell to zsh]
+    - [localedef -i en_US -c -f UTF-8 en_US.UTF-8, Set locale to en_US.UTF-8]
+#
+
+# TODO: Nix Package Manager
+
+# - shell:
+#     - [
+#         bash <(curl -L https://nixos.org/nix/install) --no-daemon --no-modify-profile,
+#         Install Nix,
+#       ]
+# - nixenv:
+#     - packages:
+#         - nixpkgs.htop
+#         - nixpkgs.zoxide
+#
+#         - nixpkgs.ghq
+#         - nixpkgs.2fa
+#
+#         - nixpkgs.neovim
+#         - nixpkgs.python3
+#         - nixpkgs.lazygit
+#         - nixpkgs.luarocks
+#         - nixpkgs.npm
+#         - nixpkgs.ripgrep

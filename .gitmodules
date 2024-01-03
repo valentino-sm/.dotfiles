@@ -7,6 +7,10 @@
 	path = meta/dotbot-omnipkg
 	url = https://github.com/code-maniac/dotbot-omnipkg
 	shallow = true
+[submodule "meta/dotbot-if"]
+	path = meta/dotbot-if
+	url = https://github.com/wonderbeyond/dotbot-if
+	shallow = true
 
 [submodule "nvchad_dist"]
 	path = nvchad_dist

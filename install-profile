@@ -13,7 +13,9 @@ DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 OMNIPKGPLUGIN="${BASE_DIR}/${META_DIR}/dotbot-omnipkg/omnipkg.py"
+IFPLUGIN="${BASE_DIR}/${META_DIR}/dotbot-if/if.py"
 
 cd "${BASE_DIR}"
 git -C "${BASE_DIR}" submodule sync --quiet --recursive
@@ -37,6 +39,7 @@ for config in ${CONFIGS} ${@}; do
             -d "${BASE_DIR}" \
             -c "$configFile" \
             -p "${OMNIPKGPLUGIN}" \
+            -p "${IFPLUGIN}" \
         )
 
     if [[ $config == *"sudo"* ]]; then
