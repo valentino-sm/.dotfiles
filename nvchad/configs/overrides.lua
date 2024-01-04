@@ -53,6 +53,9 @@ M.mason = {
     "docker-compose-language-service",
     "hadolint",
 
+    -- yaml
+    "yaml-language-server",
+
     -- lua stuff
     "lua-language-server",
     "stylua",
