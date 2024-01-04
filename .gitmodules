@@ -1,6 +1,7 @@
 [submodule "dotbot"]
 	path = meta/dotbot
-	url = https://github.com/anishathalye/dotbot
+	url = https://github.com/valentino-sm/dotbot
+	branch = fix-dublicate-plugins
 	ignore = dirty
 	shallow = true
 [submodule "meta/dotbot-omnipkg"]
