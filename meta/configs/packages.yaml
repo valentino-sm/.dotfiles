@@ -3,11 +3,13 @@
     cond: "[ -f /usr/bin/dnf ]"
     met:
       - shell:
-          - command: dnf install -y sudo
-
-- omnipkg:
-    - update
-    - upgrade
+          - command: dnf install -y sudo && dnf upgrade -y
+            description: Install sudo and upgrade
+            stdout: true
+    unmet:
+      - omnipkg:
+          - update
+          - upgrade
 
 - omnipkg:
     - install:
