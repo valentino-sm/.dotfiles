@@ -109,11 +109,9 @@ local plugins = {
   {
     "nguyenvukhang/nvim-toggler",
     event = { "BufWritePost", "InsertEnter" },
-    keys = { { "<leader>i", desc = "Toggle" } },
-    opts = function(_, opts)
-      opts.remove_default_keybindings = true
-      vim.keymap.set({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle)
-    end,
+    keys = { "<leader>i" },
+    -- keys = { { "<leader>i", desc = "Toggle" } },
+    opts = function(_, opts) opts.remove_default_keybindings = true end,
   },
 
   {
@@ -153,13 +151,15 @@ local plugins = {
     opts = {},
   },
 
-  {
-    "andreadev-it/shade.nvim",
-    lazy = false,
-    opts = {
-      exclude_filetypes = { "NvimTree" },
-    },
-  },
+  -- {
+  --   -- "andreadev-it/shade.nvim",
+  --   -- dir = "/root/ghq/github.com/andreadev-it/Shade.nvim",
+  --   "valentino-sm/shade.nvim",
+  --   lazy = false,
+  --   opts = {
+  --     exclude_filetypes = { "NvimTree" },
+  --   },
+  -- },
 }
 
 return plugins

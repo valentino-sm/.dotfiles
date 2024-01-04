@@ -34,6 +34,7 @@ M.general = {
   i = {
     ["<C-a>"] = { "<ESC>^i", "Beginning of line" },
   },
+
   n = {
     ["<C-c>"] = { "<cmd> noh <CR><cmd> %y+ <CR>", "Copy whole file" },
 
@@ -44,9 +45,16 @@ M.general = {
     ["<leader>n"] = { "<cmd>enew<cr>", "New File" },
     ["|"] = { "<cmd>vsplit<cr>", "Vertical Split" },
     ["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
+
+    ["<leader>i"] = { function() require("nvim-toggler").toggle() end, "Toggle" },
   },
+
   v = {
-    -- [">"] = { ">gv", "indent"},
+    -- [">"] = { ">gv<ESC>", "Indent line" },
+    -- ["<"] = { "<gv<ESC>", "Indent line" },
+    ["<Tab>"] = { ">gv", "Indent line" },
+    ["<S-Tab>"] = { "<gv", "Indent line" },
+    ["."] = { ":norm .<CR>", "Repeat last command" },
   },
 }
 
