@@ -1,15 +1,5 @@
-- if:
-    # check for dnf
-    cond: "[ -f /usr/bin/dnf ]"
-    met:
-      - shell:
-          - command: dnf install -y sudo && dnf upgrade -y
-            description: Install sudo and upgrade
-            stdout: true
-    unmet:
-      - omnipkg:
-          - update
-          - upgrade
+- omnipkg:
+    - upgrade
 
 - omnipkg:
     - install:
@@ -17,7 +7,6 @@
         - openssh
         - zsh
         - tmux
-        - [python3, python]
 
 - if:
     # check for dnf
@@ -85,6 +74,8 @@
         - npm
         - luarocks
         - ripgrep
+
+        - docker
 
 # change shell
 - shell:
