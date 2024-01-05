@@ -1,15 +1,15 @@
 #### rpm
 ```sh
-dnf install git -y && git clone https://github.com/valentino-sm/.dotfiles && cd .dotfiles && ./install
+dnf install -y git python3 sudo && git clone https://github.com/valentino-sm/.dotfiles && cd .dotfiles && ./install
 ```
 
 #### arch
 ```sh
-pacman -S git && git clone https://github.com/valentino-sm/.dotfiles && cd .dotfiles && ./install
+pacman -Sy git python3 sudo --noconfirm && git clone https://github.com/valentino-sm/.dotfiles && cd .dotfiles && ./install
 ```
 
 #### mac
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-brew install git && git clone https://github.com/valentino-sm/.dotfiles && cd .dotfiles && ./install
+brew install git python3 && git clone https://github.com/valentino-sm/.dotfiles && cd .dotfiles && ./install
 ```
