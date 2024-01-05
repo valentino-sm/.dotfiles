@@ -44,7 +44,7 @@ M.mason = {
     -- python stuff
     "black",
     "isort",
-    "mypy",
+    -- "mypy",
     "pyright",
     "ruff-lsp",
 
@@ -61,14 +61,14 @@ M.mason = {
     "stylua",
 
     -- web dev stuff
-    "css-lsp",
-    "html-lsp",
+    -- "css-lsp",
+    -- "html-lsp",
     "typescript-language-server",
-    "deno",
+    -- "deno",
     "prettier",
 
     -- c/cpp stuff
-    "clangd",
+    -- "clangd",
     "clang-format",
   },
 }
