@@ -50,8 +50,8 @@ M.general = {
   },
 
   v = {
-    -- [">"] = { ">gv<ESC>", "Indent line" },
-    -- ["<"] = { "<gv<ESC>", "Indent line" },
+    [">"] = { ">", "Indent line" },
+    ["<"] = { "<", "Indent line" },
     ["<Tab>"] = { ">gv", "Indent line" },
     ["<S-Tab>"] = { "<gv", "Indent line" },
     ["."] = { ":norm .<CR>", "Repeat last command" },
