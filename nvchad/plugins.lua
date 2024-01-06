@@ -151,15 +151,13 @@ local plugins = {
     opts = {},
   },
 
-  -- {
-  --   -- "andreadev-it/shade.nvim",
-  --   -- dir = "/root/ghq/github.com/andreadev-it/Shade.nvim",
-  --   "valentino-sm/shade.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     exclude_filetypes = { "NvimTree" },
-  --   },
-  -- },
+  {
+    "valentino-sm/shade.nvim",
+    lazy = false,
+    opts = {
+      exclude_filetypes = { "NvimTree", "nvdash" },
+    },
+  },
 }
 
 return plugins
