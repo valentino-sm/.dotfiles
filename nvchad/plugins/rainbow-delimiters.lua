@@ -1,4 +1,6 @@
 return {
+  "hiphish/rainbow-delimiters.nvim",
+  event = "BufReadPost",
   config = function()
     dofile(vim.g.base46_cache .. "rainbowdelimiters")
     local rainbow_delimiters = require "rainbow-delimiters"

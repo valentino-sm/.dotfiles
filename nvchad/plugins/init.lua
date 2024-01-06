@@ -26,17 +26,6 @@ local plugins = {
     opts = overrides.mason,
   },
 
-  -- custom treesitter stuff
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      { "nvim-treesitter/nvim-treesitter-textobjects" },
-      { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
-      { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
-    },
-    opts = require("custom.configs.treesitter").opts,
-  },
-
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
@@ -74,13 +63,6 @@ local plugins = {
     end,
   },
 
-  {
-    "Exafunction/codeium.vim",
-    cmd = "Codeium",
-    event = "InsertEnter",
-    config = require("custom.configs.codeium").config,
-  },
-
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "nvim-telescope/telescope.nvim",
@@ -114,20 +96,6 @@ local plugins = {
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
-  },
-
-  {
-    "hiphish/rainbow-delimiters.nvim",
-    event = "BufReadPost",
-    config = require("custom.configs.rainbow-delimiters").config,
-  },
-
-  {
-    "valentino-sm/neoscroll.nvim",
-    branch = "time-scale",
-
-    keys = { "<C-d>", "<C-u>" },
-    opts = require("custom.configs.neoscroll").opts,
   },
 
   {
@@ -176,7 +144,9 @@ local plugins = {
   },
 
   {
-    "valentino-sm/shade.nvim",
+    -- "andreadev-it/shade.nvim",
+    dir = "/root/ghq/github.com/andreadev-it/Shade.nvim",
+    -- "valentino-sm/shade.nvim",
     lazy = false,
     opts = {
       exclude_filetypes = { "NvimTree", "nvdash" },
