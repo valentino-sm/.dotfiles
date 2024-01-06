@@ -27,7 +27,15 @@ local plugins = {
   },
 
   -- custom treesitter stuff
-  require "custom.configs.treesitter",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
+      { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
+      { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+    },
+    opts = require("custom.configs.treesitter").opts,
+  },
 
   {
     "nvim-tree/nvim-tree.lua",
@@ -66,7 +74,12 @@ local plugins = {
     end,
   },
 
-  require "custom.configs.codeium",
+  {
+    "Exafunction/codeium.vim",
+    cmd = "Codeium",
+    event = "InsertEnter",
+    config = require("custom.configs.codeium").config,
+  },
 
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
@@ -103,8 +116,19 @@ local plugins = {
     config = true,
   },
 
-  require "custom.configs.rainbow-delimiters",
-  require "custom.configs.neoscroll",
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "BufReadPost",
+    config = require("custom.configs.rainbow-delimiters").config,
+  },
+
+  {
+    "valentino-sm/neoscroll.nvim",
+    branch = "time-scale",
+
+    keys = { "<C-d>", "<C-u>" },
+    opts = require("custom.configs.neoscroll").opts,
+  },
 
   {
     "nguyenvukhang/nvim-toggler",

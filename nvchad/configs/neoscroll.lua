@@ -1,8 +1,4 @@
 return {
-  "valentino-sm/neoscroll.nvim",
-  branch = "time-scale",
-
-  keys = { "<C-d>", "<C-u>" },
   opts = {
     time_scale = 0.5,
     mappings = {

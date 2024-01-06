@@ -1,11 +1,4 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  -- opts = overrides.treesitter,
-  dependencies = {
-    { "nvim-treesitter/nvim-treesitter-textobjects" },
-    { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
-    { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
-  },
   opts = function(_, opts)
     vim.g.skip_ts_context_commentstring_module = true
     opts.textobjects = {

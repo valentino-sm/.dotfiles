@@ -1,7 +1,4 @@
 return {
-  "Exafunction/codeium.vim",
-  cmd = "Codeium",
-  event = "InsertEnter",
   -- init = function()
   --   vim.g.codeium_enabled = 1
   --   -- vim.g.codeium_disable_bindings = 1
