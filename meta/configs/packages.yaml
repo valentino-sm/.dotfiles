@@ -61,7 +61,7 @@
 
               # should be in AUR
               - ghq
-              - 2fa
+              - [rsc_2fa, 2fa]
 
 - omnipkg:
     - install:
