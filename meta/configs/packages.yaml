@@ -79,8 +79,11 @@
 
 # change shell
 - shell:
-    - [chsh -s /usr/bin/zsh, Change shell to zsh]
-    - [localedef -i en_US -c -f UTF-8 en_US.UTF-8, Set locale to en_US.UTF-8]
+    - ["chsh -s /usr/bin/zsh || true", Change shell to zsh]
+    - [
+        "localedef -i en_US -c -f UTF-8 en_US.UTF-8 || true",
+        Set locale to en_US.UTF-8,
+      ]
 #
 
 # TODO: Nix Package Manager
