@@ -95,6 +95,7 @@ return {
     "valentino-sm/shade.nvim",
     lazy = false,
     opts = {
+      overlay_opacity = 70,
       exclude_filetypes = { "NvimTree", "nvdash" },
     },
   },
