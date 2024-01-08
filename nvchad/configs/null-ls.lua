@@ -15,6 +15,12 @@ local sources = {
   -- docker
   b.diagnostics.hadolint.with { filetypes = { "dockerfile" } },
 
+  -- go
+  b.diagnostics.golangci_lint.with { filetypes = { "go" } },
+  b.diagnostics.golangci_lint.with { diagnostics_postprocess = function(diagnostic)
+    diagnostic.severity = vim.diagnostic.severity["HINT"]
+  end },
+
   -- webdev stuff
   b.formatting.deno_fmt.with { filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with { filetypes = { "yaml", "html", "markdown", "css" } },                                -- so prettier works only on these filetypes
