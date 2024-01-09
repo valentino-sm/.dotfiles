@@ -118,7 +118,7 @@ M.general = {
     ["<C-Down>"] = { function() require("smart-splits").resize_down() end, "Resize split down" },
     ["<C-Left>"] = { function() require("smart-splits").resize_left() end, "Resize split left" },
     ["<C-Right>"] = { function() require("smart-splits").resize_right() end, "Resize split right" },
-  }
+  },
 }
 
 M.tabufline = {
@@ -232,8 +232,10 @@ M.gitsigns = {
 M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
   n = {
+    ["<leader>ld"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
+    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
-    ["<leader>ld"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type" },
+    ["<leader>lt"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type" },
     ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
     ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
     ["<leader>lR"] = { function() vim.lsp.buf.references() end, "LSP references" },
