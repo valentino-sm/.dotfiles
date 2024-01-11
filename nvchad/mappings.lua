@@ -79,6 +79,7 @@ M.general = {
   },
 
   n = {
+    ["<C-i>"] = { "<C-i>", "Remap <C-i>" },
     ["<C-c>"] = { "<cmd> noh <CR><cmd> %y+ <CR>", "Copy whole file" },
 
     ["<C-h>"] = { function() require("smart-splits").move_cursor_left() end, "Move to left split" },
