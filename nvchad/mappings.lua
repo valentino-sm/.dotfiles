@@ -126,8 +126,11 @@ M.tabufline = {
   n = {
     ["]b"] = { function() require("nvchad.tabufline").tabuflineNext() end, "Goto next buffer" },
     ["[b"] = { function() require("nvchad.tabufline").tabuflinePrev() end, "Goto prev buffer" },
+
     [">b"] = { function() require("nvchad.tabufline").move_buf(1) end, "Move buffer next" },
     ["<b"] = { function() require("nvchad.tabufline").move_buf(-1) end, "Move buffer prev" },
+    ["<leader>b>"] = { function() require("nvchad.tabufline").move_buf(1) end, "Move buffer next" },
+    ["<leader>b<"] = { function() require("nvchad.tabufline").move_buf(-1) end, "Move buffer prev" },
 
     ["<leader>bc"] = { function() require("nvchad.tabufline").closeAllBufs() end, "Close all buffers" },
 
