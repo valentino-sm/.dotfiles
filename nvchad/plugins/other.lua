@@ -89,16 +89,16 @@ return {
     opts = {},
   },
 
-  {
-    -- "andreadev-it/shade.nvim",
-    -- dir = "/root/ghq/github.com/andreadev-it/Shade.nvim",
-    "valentino-sm/shade.nvim",
-    lazy = false,
-    opts = {
-      overlay_opacity = 70,
-      exclude_filetypes = { "NvimTree", "nvdash" },
-    },
-  },
+  -- {
+  --   -- "andreadev-it/shade.nvim",
+  --   -- dir = "/root/ghq/github.com/andreadev-it/Shade.nvim",
+  --   "valentino-sm/shade.nvim",
+  --   lazy = false,
+  --   opts = {
+  --     overlay_opacity = 70,
+  --     exclude_filetypes = { "NvimTree", "nvdash" },
+  --   },
+  -- },
 
   {
     "ethanholz/nvim-lastplace",
@@ -108,5 +108,11 @@ return {
       lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
       lastplace_open_folds = false,
     },
+  },
+
+  {
+    "valentino-sm/aider.nvim",
+    lazy = false,
+    opts = {},
   },
 }
