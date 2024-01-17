@@ -109,4 +109,7 @@ return {
   },
 
   { "valentino-sm/aider.nvim",                  config = true },
+  { "valentino-sm/nvim-lspimport" },
+  -- Heuristic buffer auto-close
+  { "axkirillov/hbac.nvim",                     config = true },
 }

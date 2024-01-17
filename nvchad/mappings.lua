@@ -256,6 +256,8 @@ M.lspconfig = {
       function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
       "List workspace folders",
     },
+
+    ["<leader>li"] = { function() require("lspimport").import() end, "LSP autoimport" },
   },
 
   v = {
