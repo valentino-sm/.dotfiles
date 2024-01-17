@@ -46,9 +46,6 @@ return {
 
   {
     "nguyenvukhang/nvim-toggler",
-    event = { "BufWritePost", "InsertEnter" },
-    keys = { "<leader>i" },
-    -- keys = { { "<leader>i", desc = "Toggle" } },
     opts = function(_, opts) opts.remove_default_keybindings = true end,
   },
 
@@ -74,6 +71,7 @@ return {
     end,
   },
 
+  -- Highlight letter when find
   {
     "jinh0/eyeliner.nvim",
     event = "BufReadPre",
@@ -86,7 +84,7 @@ return {
   {
     "RubixDev/mason-update-all",
     cmd = "MasonUpdateAll",
-    opts = {},
+    config = true,
   },
 
   -- {
@@ -110,9 +108,5 @@ return {
     },
   },
 
-  {
-    "valentino-sm/aider.nvim",
-    lazy = false,
-    opts = {},
-  },
+  { "valentino-sm/aider.nvim",                  config = true },
 }
