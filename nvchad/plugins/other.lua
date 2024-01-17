@@ -108,7 +108,23 @@ return {
     },
   },
 
-  { "valentino-sm/aider.nvim",                  config = true },
+  {
+    "valentino-sm/aider.nvim",
+    opts = {
+      ignore_buffers = {
+        "term://",
+        "NvimTree_",
+        "neo-tree filesystem",
+        "NeogitConsole",
+        ".md",
+        ".yaml",
+        ".yml",
+        ".toml",
+        ".json",
+        ".lock",
+      },
+    },
+  },
   { "valentino-sm/nvim-lspimport" },
   -- Heuristic buffer auto-close
   { "axkirillov/hbac.nvim",                     config = true },
