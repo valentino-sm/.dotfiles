@@ -236,13 +236,14 @@ M.gitsigns = {
 M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
   n = {
+    ["gd"] = { function() require("telescope.builtin").lsp_definitions() end, "LSP definition" },
     ["<leader>ld"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
     ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
-    ["<leader>lt"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type" },
+    ["<leader>lt"] = { function() require("telescope.builtin").lsp_type_definitions() end, "LSP definition type" },
     ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
     ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
-    ["<leader>lR"] = { function() vim.lsp.buf.references() end, "LSP references" },
+    ["<leader>lR"] = { function() require("telescope.builtin").lsp_references() end, "LSP references" },
 
     ["[d"] = { function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end, "Goto prev diagnostic" },
     ["]d"] = { function() vim.diagnostic.goto_next { float = { border = "rounded" } } end, "Goto next diagnostic" },
