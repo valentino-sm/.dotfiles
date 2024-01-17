@@ -100,6 +100,8 @@ M.general = {
     ["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
 
     ["<leader>i"] = { function() require("nvim-toggler").toggle() end, "Toggle word" },
+
+    ["<leader>lc"] = { function() require("aider").AiderOpen() end, "Open Aider" },
   },
 
   v = {
