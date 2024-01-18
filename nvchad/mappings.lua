@@ -101,7 +101,11 @@ M.general = {
 
     ["<leader>i"] = { function() require("nvim-toggler").toggle() end, "Toggle word" },
 
-    ["<leader>lc"] = { function() require("aider").AiderOpen() end, "Open Aider" },
+    ["<leader>lc"] = { function() require("aider").AiderOpen("-3") end, "Open Aider" },
+    ["<leader>  "] = { function() require("aider").AiderOpen("-3") end, "Open Aider" },
+    ["<leader> 3"] = { function() require("aider").AiderOpen("--model=gpt-3.5-turbo-0613") end, "Open Aider GPT-3-Turbo 0613" },
+    ["<leader> 4"] = { function() require("aider").AiderOpen("--4turbo") end, "Open Aider GPT-4 Turbo" },
+    ["<leader> f"] = { function() require("aider").AiderOpen("--model=gpt-4") end, "Open Aider GPT-4 Full" },
   },
 
   v = {

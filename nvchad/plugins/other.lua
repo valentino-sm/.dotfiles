@@ -111,6 +111,7 @@ return {
   {
     "valentino-sm/aider.nvim",
     opts = {
+      default_keybindings = false,
       ignore_buffers = {
         "term://",
         "NvimTree_",
