@@ -69,6 +69,7 @@
         - htop
         - zoxide
         - lazygit
+        - mcfly
 
         # for development
         - npm
