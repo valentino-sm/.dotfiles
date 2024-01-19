@@ -150,3 +150,6 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 if command -v mcfly &> /dev/null; then
     eval "$(mcfly init zsh)";
 fi
+if command -v please &> /dev/null; then
+    please
+fi
