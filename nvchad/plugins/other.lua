@@ -111,9 +111,9 @@ return {
   {
     "valentino-sm/aider.nvim",
     opts = {
-      default_keybindings = false,
+      default_bindings = false,
       ignore_buffers = {
-        "term://",
+        "^term://",
         "NvimTree_",
         "neo-tree filesystem",
         "NeogitConsole",
