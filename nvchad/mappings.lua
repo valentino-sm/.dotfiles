@@ -220,6 +220,7 @@ M.git = {
     ["<leader>gG"] = { "<cmd>LazyGitConfig<cr>", "Open LazyGitConfig" },
 
     ["<leader>gh"] = { "<cmd>DiffviewFileHistory<cr>", "Open DiffviewFileHistory" },
+    ["<leader>gf"] = { "<cmd>DiffviewFileHistory %<cr>", "Open DiffviewFileHistory current file" },
     ["<leader>go"] = { "<cmd>DiffviewOpen<cr>", "Open Diffview" },
     ["<leader>gx"] = { "<cmd>DiffviewClose<cr>", "Close Diffview" },
 
