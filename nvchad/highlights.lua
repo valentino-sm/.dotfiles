@@ -9,10 +9,6 @@ M.override = {
   Comment = {
     italic = true,
   },
-  St_gitIcons = {
-    bold = false,
-  },
-  St_file_info = { bold = true },
 }
 
 ---@type HLTable
