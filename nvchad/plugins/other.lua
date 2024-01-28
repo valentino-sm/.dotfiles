@@ -42,6 +42,10 @@ return {
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
+    opts = function(_, opts)
+      vim.opt.fillchars:append { diff = "╱" }
+      opts.enhanced_diff_hl = true
+    end,
   },
 
   {
