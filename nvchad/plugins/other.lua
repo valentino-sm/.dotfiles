@@ -45,6 +45,14 @@ return {
   },
 
   {
+    "FabijanZulj/blame.nvim",
+    cmd = { "ToggleBlame", "EnableBlame", "DisableBlame" },
+    opts = {
+      date_format = "%Y-%m-%d",
+    }
+  },
+
+  {
     "nguyenvukhang/nvim-toggler",
     opts = function(_, opts) opts.remove_default_keybindings = true end,
   },
