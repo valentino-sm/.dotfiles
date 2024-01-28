@@ -5,7 +5,7 @@ M.base_30 = {
   white = "#cdd6f4",
   -- darker_black = "#191828",
   darker_black = "#181825",
-  black = "#1E1E2E", --  nvim bg
+  black = "#1E1E2E",  --  nvim bg
   black2 = "#242437",
   one_bg = "#2e2e47", -- real bg of onedark
   -- one_bg2 = "#363653",
@@ -56,6 +56,19 @@ M.base_16 = {
   base0F = "#F38BA8",
 }
 
+local mix_color_with_opacity = function(hex1, hex2, opacity)
+  local hex2rgb = require("base46.colors").hex2rgb
+
+  local r1, g1, b1 = hex2rgb(hex1)
+  local r2, g2, b2 = hex2rgb(hex2)
+
+  local r = r1 + (r2 - r1) * opacity
+  local g = g1 + (g2 - g1) * opacity
+  local b = b1 + (b2 - b1) * opacity
+
+  return require("base46.colors").rgb2hex(r, g, b)
+end
+
 M.polish_hl = {
   ["@variable"] = { fg = M.base_30.lavender },
   ["@property"] = { fg = M.base_30.teal },
@@ -71,8 +84,29 @@ M.polish_hl = {
   CursorLine = { bg = M.base_30.black2 },
 }
 
+M.add_hl = {
+  DiffAdd = {
+    bg = mix_color_with_opacity(M.base_30.black, M.base_30.green, 0.2),
+  },
+
+  DiffChange = {
+    bg = mix_color_with_opacity(M.base_30.black, M.base_30.light_grey, 0.2),
+  },
+
+  DiffDelete = {
+    bg = mix_color_with_opacity(M.base_30.black, M.base_30.red, 0.2),
+  },
+
+  DiffText = {
+    bg = mix_color_with_opacity(M.base_30.black, M.base_30.blue, 0.4),
+  },
+}
+
 M = require("base46").override_theme(M, "catppuccin-mocha")
 
+for k, v in pairs(M.polish_hl) do
+  print(k, v)
+end
 M.type = "dark"
 
 return M
