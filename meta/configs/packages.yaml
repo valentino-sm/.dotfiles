@@ -72,6 +72,7 @@
         - mcfly
 
         # for development
+        - pyenv
         - npm
         - luarocks
         - ripgrep
