@@ -101,11 +101,14 @@ M.general = {
 
     ["<leader>i"] = { function() require("nvim-toggler").toggle() end, "Toggle word" },
 
-    ["<leader>lc"] = { function() require("aider").AiderOpen("-3") end, "Open Aider" },
-    ["<leader>  "] = { function() require("aider").AiderOpen("-3") end, "Open Aider" },
-    ["<leader> 3"] = { function() require("aider").AiderOpen("--model=gpt-3.5-turbo-0613") end, "Open Aider GPT-3-Turbo 0613" },
-    ["<leader> 4"] = { function() require("aider").AiderOpen("--4turbo") end, "Open Aider GPT-4 Turbo" },
-    ["<leader> f"] = { function() require("aider").AiderOpen("--model=gpt-4") end, "Open Aider GPT-4 Full" },
+    ["<leader>lc"] = { function() require("aider").AiderOpen "-3" end, "Open Aider" },
+    ["<leader>  "] = { function() require("aider").AiderOpen "-3" end, "Open Aider" },
+    ["<leader> 3"] = {
+      function() require("aider").AiderOpen "--model=gpt-3.5-turbo-0613" end,
+      "Open Aider GPT-3-Turbo 0613",
+    },
+    ["<leader> 4"] = { function() require("aider").AiderOpen "--4turbo" end, "Open Aider GPT-4 Turbo" },
+    ["<leader> f"] = { function() require("aider").AiderOpen "--model=gpt-4" end, "Open Aider GPT-4 Full" },
   },
 
   v = {
@@ -245,7 +248,7 @@ M.lspconfig = {
   n = {
     ["gd"] = { function() require("telescope.builtin").lsp_definitions() end, "LSP definition" },
     ["<leader>ld"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
-    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
+    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true, timeout = 5000 } end, "LSP formatting" },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
     ["<leader>lt"] = { function() require("telescope.builtin").lsp_type_definitions() end, "LSP definition type" },
     ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
