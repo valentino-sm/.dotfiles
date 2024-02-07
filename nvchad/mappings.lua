@@ -249,6 +249,10 @@ M.lspconfig = {
     ["gd"] = { function() require("telescope.builtin").lsp_definitions() end, "LSP definition" },
     ["<leader>ld"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
     ["<leader>lf"] = { function() vim.lsp.buf.format { async = true, timeout = 5000 } end, "LSP formatting" },
+    ["<leader>fm"] = {
+      function() vim.lsp.buf.format { async = true, timeout = 5000 } end,
+      "LSP formatting",
+    },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
     ["<leader>lt"] = { function() require("telescope.builtin").lsp_type_definitions() end, "LSP definition type" },
     ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
