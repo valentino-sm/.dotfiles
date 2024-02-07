@@ -11,7 +11,6 @@ local servers = {
   "dockerls",
   "docker_compose_language_service",
   "pyright",
-  "ruff_lsp",
   "html",
   "cssls",
   "tsserver",
