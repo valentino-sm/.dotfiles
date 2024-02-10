@@ -78,6 +78,9 @@
         - ripgrep
 
         - docker
+        - docker-buildx
+        - docker-compose
+        - lazydocker
 
 # change shell
 - shell:
