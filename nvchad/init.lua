@@ -17,4 +17,4 @@ vim.diagnostic.config {
   },
 }
 
-vim.opt.jumpoptions = "stack"
+-- vim.opt.jumpoptions = "stack"
