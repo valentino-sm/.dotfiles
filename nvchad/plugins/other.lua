@@ -123,6 +123,7 @@ return {
   {
     "valentino-sm/aider.nvim",
     opts = {
+      auto_manage_context = false,
       default_bindings = false,
       ignore_buffers = {
         "^term://",
