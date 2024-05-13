@@ -24,64 +24,8 @@
               - epel-release # Extra Packages for Enterprise Linux
               # - xz # for Nix install
 
-              # nvim dependencies
-              - compat-lua-libs
-              - libtermkey
-              - libtree-sitter
-              - libvterm
-              - luajit
-              - luajit2.1-luv
-              - msgpack
-              - unibilium
-              - xsel
-
-      - shell:
-          # install nvim from github
-          # EPEL repo does not have latest version
-          - command: if [ ! -d ~/.local/share/nvim-linux64 ]; then curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz | tar -xz && mkdir -p ~/.local/share && mv nvim-linux64 ~/.local/share/nvim-linux64; fi
-            stdin: false
-            stdout: true
-            stderr: true
-            description: Install nvim
-            quiet: false
-
-      - link:
-          ~/.local/bin/nvim:
-            path: ~/.local/share/nvim-linux64/bin/nvim
-            create: true
-            relink: true
-
-      - shell:
-          - [dnf copr enable -y atim/lazygit, Enable copr lazygit]
-
-    unmet:
-      # for other distros (not dnf)
-      - omnipkg:
-          - install:
-              - [neovim, nvim]
-
-              # should be in AUR
-              - ghq
-              - [rsc_2fa, 2fa]
-
-- omnipkg:
-    - install:
-        # Common packages for all distros after EPEL enabled
-        - htop
-        - zoxide
-        - lazygit
-        - mcfly
-
-        # for development
-        - pyenv
-        - npm
-        - luarocks
-        - ripgrep
-
-        - docker
-        - docker-buildx
-        - docker-compose
-        - lazydocker
+          - shell:
+              - [dnf copr enable -y atim/lazygit, Enable copr lazygit]
 
 # change shell
 - shell:
@@ -90,8 +34,15 @@
         "localedef -i en_US -c -f UTF-8 en_US.UTF-8 || true",
         Set locale to en_US.UTF-8,
       ]
-#
 
+- omnipkg:
+    - install:
+        # Common packages for all distros after EPEL enabled
+        - htop
+        - zoxide
+        - lazygit
+        - mcfly
+#
 # TODO: Nix Package Manager
 
 # - shell:
