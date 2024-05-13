@@ -4,6 +4,7 @@
 - omnipkg:
     - install:
         # common
+        - tar
         - openssh
         - zsh
         - tmux
