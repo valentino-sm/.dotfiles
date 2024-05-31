@@ -8,6 +8,7 @@ M.treesitter = {
     "bash",
     "python",
     "go",
+    "rust",
     "requirements",
     "vimdoc",
     "dockerfile",
@@ -52,6 +53,9 @@ M.mason = {
     -- go
     -- "gopls",
     -- "golangci-lint",
+
+    -- rust
+    "rust-analyzer",
 
     -- docker stuff
     "dockerfile-language-server",

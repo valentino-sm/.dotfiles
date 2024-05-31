@@ -21,6 +21,9 @@ local sources = {
     diagnostic.severity = vim.diagnostic.severity["HINT"]
   end },
 
+  -- rust
+  -- b.formatting.rustfmt.with { filetypes = { "rust" } },
+
   -- webdev stuff
   b.formatting.deno_fmt.with { filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with { filetypes = { "yaml", "html", "markdown", "css" } },                                -- so prettier works only on these filetypes
