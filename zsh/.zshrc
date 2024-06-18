@@ -157,3 +157,7 @@ if command -v pyenv &> /dev/null; then
   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
+
+# Colorize man pages
+LESS='-R --use-color -Dd+r$Du+b$'
+export GROFF_NO_SGR=1
