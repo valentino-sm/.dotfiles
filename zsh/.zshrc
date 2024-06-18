@@ -136,6 +136,7 @@ export EDITOR='nn'
 
 # alias gdu='gdu-go'
 alias j="jump"
+alias ku="kubectl"
 
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
