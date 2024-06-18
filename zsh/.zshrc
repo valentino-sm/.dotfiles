@@ -160,4 +160,5 @@ fi
 
 # Colorize man pages
 LESS='-R --use-color -Dd+r$Du+b$'
-export GROFF_NO_SGR=1
+export MANROFFOPT="-c"
+# export GROFF_NO_SGR=1
