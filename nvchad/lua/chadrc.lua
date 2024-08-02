@@ -39,13 +39,14 @@ M.ui = {
   },
 
   statusline = require "configs.statusline",
+}
 
-  extended_integrations = {
+M.base46 = {
+  integrations = {
     "notify",
     "rainbowdelimiters",
   },
 }
-
 -- M.plugins = "plugins"
 
 -- check core.mappings for table structure
