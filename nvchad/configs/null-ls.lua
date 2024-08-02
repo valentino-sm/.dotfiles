@@ -7,8 +7,8 @@ local sources = {
   b.formatting.beautysh.with { filetypes = { "sh", "zsh", "bash", "fish" } },
 
   -- python
+  b.formatting.isort.with { filetypes = { "python" }, extra_args = { "--virtual-env", "venv", "--profile", "black" } },
   b.formatting.black.with { filetypes = { "python" } },
-  b.formatting.isort.with { filetypes = { "python" } },
   -- b.diagnostics.ruff.with { filetypes = { "python" } },
   -- b.diagnostics.mypy.with { filetypes = { "python" } },
 
@@ -17,9 +17,9 @@ local sources = {
 
   -- go
   b.diagnostics.golangci_lint.with { filetypes = { "go" } },
-  b.diagnostics.golangci_lint.with { diagnostics_postprocess = function(diagnostic)
-    diagnostic.severity = vim.diagnostic.severity["HINT"]
-  end },
+  b.diagnostics.golangci_lint.with {
+    diagnostics_postprocess = function(diagnostic) diagnostic.severity = vim.diagnostic.severity["HINT"] end,
+  },
 
   -- rust
   -- b.formatting.rustfmt.with { filetypes = { "rust" } },
