@@ -6,7 +6,7 @@ return {
     { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
   },
   opts = function(_, opts)
-    local overrides = require "custom.configs.overrides"
+    local overrides = require "configs.overrides"
     opts = vim.tbl_deep_extend("force", opts, overrides.treesitter)
     vim.g.skip_ts_context_commentstring_module = true
     opts.textobjects = {

@@ -2,7 +2,7 @@
 local M = {}
 
 -- Path to overriding theme and highlights files
-local highlights = require "custom.highlights"
+local highlights = require "highlights"
 
 M.ui = {
   theme = "catppuccin-mocha",
@@ -38,7 +38,7 @@ M.ui = {
     -- buttons = {},
   },
 
-  statusline = require "custom.configs.statusline",
+  statusline = require "configs.statusline",
 
   extended_integrations = {
     "notify",
@@ -46,9 +46,9 @@ M.ui = {
   },
 }
 
-M.plugins = "custom.plugins"
+-- M.plugins = "plugins"
 
 -- check core.mappings for table structure
-M.mappings = require "custom.mappings"
+-- M.mappings = require "mappings"
 
 return M
