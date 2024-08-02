@@ -1,4 +1,8 @@
 require "nvchad.mappings"
+
+local map = vim.keymap.set
+local del = vim.keymap.del
+
 ---@type MappingsTable
 local M = {}
 
@@ -31,12 +35,12 @@ M.disabled = {
     },
 
     -- gitsigns
-    ["<leader>rh"] = { --[[  function() require("gitsigns").reset_hunk() end, "Reset hunk"  ]]
-    },
-    ["<leader>ph"] = { --[[  function() require("gitsigns").preview_hunk() end, "Preview hunk"  ]]
-    },
-    ["<leader>td"] = { --[[  function() require("gitsigns").toggle_deleted() end, "Toggle deleted"  ]]
-    },
+    -- ["<leader>rh"] = { --[[  function() require("gitsigns").reset_hunk() end, "Reset hunk"  ]]
+    -- },
+    -- ["<leader>ph"] = { --[[  function() require("gitsigns").preview_hunk() end, "Preview hunk"  ]]
+    -- },
+    -- ["<leader>td"] = { --[[  function() require("gitsigns").toggle_deleted() end, "Toggle deleted"  ]]
+    -- },
 
     -- telescope
     ["<leader>cm"] = { --[[  "<cmd> Telescope git_commits <CR>", "Git commits"  ]]
@@ -49,14 +53,14 @@ M.disabled = {
     },
 
     -- lsp
-    ["<leader>D"] = { --[[  function() vim.lsp.buf.type_definition() end, "LSP definition type"  ]]
-    },
-    ["<leader>ra"] = { --[[  function() require("nvchad.renamer").open() end, "LSP rename"  ]]
-    },
-    ["<leader>ca"] = { --[[  function() vim.lsp.buf.code_action() end, "LSP code action"  ]]
-    },
-    ["gr"] = { --[[  function() vim.lsp.buf.references() end, "LSP references"  ]]
-    },
+    -- ["<leader>D"] = { --[[  function() vim.lsp.buf.type_definition() end, "LSP definition type"  ]]
+    -- },
+    -- ["<leader>ra"] = { --[[  function() require("nvchad.renamer").open() end, "LSP rename"  ]]
+    -- },
+    -- ["<leader>ca"] = { --[[  function() vim.lsp.buf.code_action() end, "LSP code action"  ]]
+    -- },
+    -- ["gr"] = { --[[  function() vim.lsp.buf.references() end, "LSP references"  ]]
+    -- },
 
     -- nvterm
     ["<leader>h"] = { --[[  function() require("nvterm.terminal").new "horizontal" end, "New horizontal term"  ]]
@@ -68,11 +72,22 @@ M.disabled = {
     ["<leader>cc"] = { --[[  "Jump to current context"  ]]
     },
   },
-  v = {
-    ["<leader>ca"] = { --[[  function() vim.lsp.buf.code_action() end, "LSP code action"  ]]
-    },
-  },
+  -- v = {
+  --   ["<leader>ca"] = { --[[  function() vim.lsp.buf.code_action() end, "LSP code action"  ]]
+  --   },
+  -- },
 }
+
+-- Remove all keymaps
+for mode, tbl in pairs(M.disabled) do
+  for key, _ in pairs(tbl) do
+    -- print(mode, key)
+    -- pcall(del, mode, key)
+    del(mode, key)
+  end
+end
+
+M.disabled = {}
 
 M.general = {
   i = {
@@ -320,4 +335,12 @@ M.blankline = {
   },
 }
 
-return M
+-- Set all keymaps
+for category, tbl in pairs(M) do
+  for mode, tbl in pairs(tbl) do
+    for key, val in pairs(tbl) do
+      -- print(mode, key, val[1], val[2])
+      map(mode, key, val[1], { desc = val[2] })
+    end
+  end
+end
