@@ -144,22 +144,22 @@ return {
   { "axkirillov/hbac.nvim",                     config = true },
 
   -- Rust
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^4", -- Recommended
-    lazy = false,   -- This plugin is already lazy
-    config = function()
-      local utils = require "core.utils"
-      vim.g.rustaceanvim = {
-        server = {
-          -- Load existing mappings from nvchad
-          on_attach = function(client, bufnr)
-            utils.load_mappings("lspconfig", { buffer = bufnr })
-
-            if client.server_capabilities.signatureHelpProvider then require("nvchad.signature").setup(client) end
-          end,
-        },
-      }
-    end,
-  },
+  -- {
+  --   "mrcjkb/rustaceanvim",
+  --   version = "^4", -- Recommended
+  --   lazy = false,   -- This plugin is already lazy
+  --   config = function()
+  --     local utils = require "core.utils"
+  --     vim.g.rustaceanvim = {
+  --       server = {
+  --         -- Load existing mappings from nvchad
+  --         on_attach = function(client, bufnr)
+  --           utils.load_mappings("lspconfig", { buffer = bufnr })
+  --
+  --           if client.server_capabilities.signatureHelpProvider then require("nvchad.signature").setup(client) end
+  --         end,
+  --       },
+  --     }
+  --   end,
+  -- },
 }
