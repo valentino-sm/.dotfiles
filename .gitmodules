@@ -13,11 +13,6 @@
 	url = https://github.com/wonderbeyond/dotbot-if
 	shallow = true
 
-[submodule "nvchad_dist"]
-	path = nvchad_dist
-	url = https://github.com/NvChad/NvChad
-	shallow = true
-
 [submodule "astronvim_dist"]
 	path = astronvim_dist
 	url = https://github.com/AstroNvim/AstroNvim
