@@ -38,7 +38,7 @@ M.ui = {
     -- buttons = {},
   },
 
-  statusline = require "configs.statusline",
+  -- statusline = require "configs.statusline",
 }
 
 M.base46 = {
