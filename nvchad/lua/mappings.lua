@@ -1,7 +1,9 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-local del = vim.keymap.del
+local unmap = vim.keymap.del
+
+-- map("i", "jk", "<ESC>")
 
 ---@type MappingsTable
 local M = {}
@@ -83,7 +85,7 @@ for mode, tbl in pairs(M.disabled) do
   for key, _ in pairs(tbl) do
     -- print(mode, key)
     -- pcall(del, mode, key)
-    del(mode, key)
+    unmap(mode, key)
   end
 end
 
