@@ -4,6 +4,10 @@ local overrides = require "configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
+  {
+    "folke/which-key.nvim",
+    lazy = false,
+  },
 
   {
     "neovim/nvim-lspconfig",
