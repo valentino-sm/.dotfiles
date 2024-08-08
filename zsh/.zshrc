@@ -135,8 +135,10 @@ export EDITOR='nn'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # alias gdu='gdu-go'
+alias e="exit"
 alias j="jump"
 alias ku="kubectl"
+alias nv="nvim"
 
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
