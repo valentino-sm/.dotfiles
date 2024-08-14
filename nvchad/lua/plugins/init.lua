@@ -46,6 +46,12 @@ local plugins = {
             k = false,
           },
         },
+        v = {
+          j = {
+            k = false,
+            j = false,
+          },
+        },
       },
     },
   },
