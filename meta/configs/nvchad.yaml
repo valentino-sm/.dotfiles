@@ -3,9 +3,8 @@
       relink: true
 
 - link:
-    nvchad_dist/lua/custom: nvchad
     ~/.config/nvchad/nvim:
-      path: nvchad_dist
+      path: nvchad
       create: true
     ~/.config/nvchad/.gitconfig: gitconfig
     ~/.local/bin/nn:
