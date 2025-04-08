@@ -84,8 +84,8 @@ M.disabled = {
 for mode, tbl in pairs(M.disabled) do
   for key, _ in pairs(tbl) do
     -- print(mode, key)
-    -- pcall(del, mode, key)
-    unmap(mode, key)
+    pcall(del, mode, key)
+    -- unmap(mode, key)
   end
 end
 
@@ -191,7 +191,14 @@ M.telescope = {
     ["<leader>fW"] = {
       function()
         require("telescope.builtin").live_grep {
-          additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+          additional_args = function(args)
+            local new_args = {}
+            if args then
+              new_args = vim.list_extend(new_args, args)
+            end
+            vim.list_extend(new_args, { "--hidden", "--no-ignore" })
+            return new_args
+          end,
         }
       end,
       "Live grep all files",
@@ -274,7 +281,8 @@ M.lspconfig = {
     },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
     ["<leader>lt"] = { function() require("telescope.builtin").lsp_type_definitions() end, "LSP definition type" },
-    ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
+    -- ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
+    ["<leader>lr"] = { function() vim.lsp.buf.rename() end, "LSP rename" },
     ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
     ["<leader>lR"] = { function() require("telescope.builtin").lsp_references() end, "LSP references" },
 
