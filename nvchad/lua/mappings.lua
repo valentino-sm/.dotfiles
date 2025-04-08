@@ -220,7 +220,7 @@ M.packages = {
   n = {
     ["<leader>pa"] = { "<cmd> NvChadUpdate <CR><cmd> MasonUpdateAll <CR>", "NvChad update" },
     ["<leader>pc"] = { "<cmd> NvCheatsheet <CR>", "NvChad cheatsheet" },
-    ["<leader>ph"] = { "<cmd> Telescope themes <CR>", "NvChad themes" },
+    ["<leader>ph"] = { function() require("nvchad.themes").open() end, "telescope nvchad themes" },
 
     ["<leader>pn"] = { function() require("lazy").install() end, "Plugins Install" },
     ["<leader>ps"] = { function() require("lazy").home() end, "Plugins Status" },

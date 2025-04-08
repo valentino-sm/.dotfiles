@@ -13,9 +13,6 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-  theme = "catppuccin-mocha",
-  theme_toggle = { "catppuccin-mocha", "one_light" },
-
   hl_override = highlights.override,
   hl_add = highlights.add,
 
@@ -63,6 +60,9 @@ M.nvdash = {
 }
 
 M.base46 = {
+  theme = "catppuccin-mocha",
+  theme_toggle = { "catppuccin-mocha", "one_light" },
+
   integrations = {
     "notify",
     "rainbowdelimiters",
