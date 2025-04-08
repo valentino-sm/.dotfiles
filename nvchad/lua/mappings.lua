@@ -266,6 +266,10 @@ M.gitsigns = {
     ["<leader>gr"] = { function() require("gitsigns").reset_hunk() end, "Reset hunk" },
     ["<leader>gp"] = { function() require("gitsigns").preview_hunk() end, "Preview hunk" },
     ["<leader>gd"] = { function() require("gitsigns").toggle_deleted() end, "Toggle deleted" },
+
+    ["<leader>gb"] = { "<cmd>Gitsigns blame_line<cr>", "Open git blame line" },
+    ["<leader>gB"] = { "<cmd>Gitsigns blame<cr>", "Open git blame" },
+
   },
 }
 
