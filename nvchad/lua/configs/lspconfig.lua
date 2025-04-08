@@ -13,7 +13,7 @@ local servers = {
   "pyright",
   "html",
   "cssls",
-  "tsserver",
+  "ts_ls",
   "clangd",
 }
 
