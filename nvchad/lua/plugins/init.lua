@@ -14,7 +14,7 @@ local plugins = {
     dependencies = {
       -- format & linting
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "standardpointer/void-ls.nvim",
         config = function() require "configs.null-ls" end,
       },
     },
