@@ -6,16 +6,9 @@ local stbufnr = function()
   return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
 end
 
-
 local M = {}
 
--- Path to overriding theme and highlights files
-local highlights = require "highlights"
-
 M.ui = {
-  hl_override = highlights.override,
-  hl_add = highlights.add,
-
   statusline = require "configs.statusline",
   statusline = {
     theme = "default",
@@ -59,9 +52,15 @@ M.nvdash = {
   },
 }
 
+-- Path to overriding theme and highlights files
+local highlights = require "highlights"
+
 M.base46 = {
   theme = "catppuccin-mocha",
   theme_toggle = { "catppuccin-mocha", "one_light" },
+
+  hl_override = highlights.override,
+  hl_add = highlights.add,
 
   integrations = {
     "notify",
