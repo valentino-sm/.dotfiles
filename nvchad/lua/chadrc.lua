@@ -1,6 +1,6 @@
 ---@type ChadrcConfig
 
-vim.cmd("highlight St_relativepath guifg=#626a83 guibg=#2a2b36")
+vim.cmd("highlight St_relativepath guifg=#626a83 guibg=#2f2e47")
 
 local stbufnr = function()
   return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
