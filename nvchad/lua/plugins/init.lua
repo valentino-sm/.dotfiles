@@ -11,19 +11,19 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "standardpointer/void-ls.nvim",
-        config = function() require "configs.null-ls" end,
-      },
-    },
     config = function()
       require "nvchad.configs.lspconfig"
       require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
 
+  {
+    "stevearc/conform.nvim",
+    opts = require "configs.conform",
+  },
+  --   "yaybrianna/null-ls.nvim",
+  --   config = function() require "configs.null-ls" end,
+  -- },
   -- override plugin configs
   {
     "williamboman/mason.nvim",

@@ -65,9 +65,9 @@ M.disabled = {
     -- },
 
     -- nvterm
-    ["<leader>h"] = { --[[  function() require("nvterm.terminal").new "horizontal" end, "New horizontal term"  ]]
+    ["<leader>h"] = { --[[  function() require("nvchad.term").new "horizontal" end, "New horizontal term"  ]]
     },
-    ["<leader>v"] = { --[[  function() require("nvterm.terminal").new "vertical" end, "New vertical term"  ]]
+    ["<leader>v"] = { --[[  function() require("nvchad.term").new "vertical" end, "New vertical term"  ]]
     },
 
     -- blankline
@@ -280,7 +280,8 @@ M.lspconfig = {
     ["<leader>ld"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
     ["<leader>lf"] = { function() vim.lsp.buf.format { async = true, timeout = 5000 } end, "LSP formatting" },
     ["<leader>fm"] = {
-      function() vim.lsp.buf.format { async = true, timeout = 5000 } end,
+      -- function() vim.lsp.buf.format { async = true, timeout = 5000 } end,
+      function() require("conform").format { async = true, timeout = 5000 } end,
       "LSP formatting",
     },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
@@ -310,20 +311,20 @@ M.lspconfig = {
 
 M.nvterm = {
   t = {
-    ["<A-f>"] = { function() require("nvterm.terminal").toggle "float" end, "Toggle floating term" },
-    ["<A-h>"] = { function() require("nvterm.terminal").toggle "horizontal" end, "Toggle horizontal term" },
-    ["<A-v>"] = { function() require("nvterm.terminal").toggle "vertical" end, "Toggle vertical term" },
+    ["<A-f>"] = { function() require("nvchad.term").toggle { pos = "float", id = "floatTerm" } end, "Toggle floating term" },
+    ["<A-h>"] = { function() require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" } end, "Toggle horizontal term" },
+    ["<A-v>"] = { function() require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" } end, "Toggle vertical term" },
   },
 
   n = {
-    ["<A-f>"] = { function() require("nvterm.terminal").toggle "float" end, "Toggle floating term" },
-    ["<A-h>"] = { function() require("nvterm.terminal").toggle "horizontal" end, "Toggle horizontal term" },
-    ["<A-v>"] = { function() require("nvterm.terminal").toggle "vertical" end, "Toggle vertical term" },
+    ["<A-f>"] = { function() require("nvchad.term").toggle { pos = "float", id = "floatTerm" } end, "Toggle floating term" },
+    ["<A-h>"] = { function() require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" } end, "Toggle horizontal term" },
+    ["<A-v>"] = { function() require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" } end, "Toggle vertical term" },
 
     -- new
-    ["<leader>tf"] = { function() require("nvterm.terminal").new "float" end, "New floating term" },
-    ["<leader>th"] = { function() require("nvterm.terminal").new "horizontal" end, "New horizontal term" },
-    ["<leader>tv"] = { function() require("nvterm.terminal").new "vertical" end, "New vertical term" },
+    ["<leader>tf"] = { function() require("nvchad.term").new { pos = "float" } end, "New floating term" },
+    ["<leader>th"] = { function() require("nvchad.term").new { pos = "sp" } end, "New horizontal term" },
+    ["<leader>tv"] = { function() require("nvchad.term").new { pos = "vsp" } end, "New vertical term" },
 
     ["<leader>to"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
   },

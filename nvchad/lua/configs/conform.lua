@@ -3,6 +3,11 @@ local options = {
     lua = { "stylua" },
     -- css = { "prettier" },
     -- html = { "prettier" },
+    python = { "isort", "black" },
+  },
+
+  default_format_opts = {
+    timeout_ms = 5000,
   },
 
   -- format_on_save = {
