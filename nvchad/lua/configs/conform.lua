@@ -3,7 +3,8 @@ local options = {
     lua = { "stylua" },
     -- css = { "prettier" },
     -- html = { "prettier" },
-    python = { "isort", "black" },
+    -- python = { "isort", "black" },
+    python = { "isort", "black", "ruff_format" },
   },
 
   default_format_opts = {
