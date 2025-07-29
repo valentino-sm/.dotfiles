@@ -165,3 +165,12 @@ fi
 LESS='-R --use-color -Dd+r$Du+b$'
 export MANROFFOPT="-c"
 # export GROFF_NO_SGR=1
+
+newalias() { 
+  echo "alias $1='${@:2}'" >> ~/.zshrc
+  source ~/.zshrc
+  echo "✅ Алиас '$1' добавлен"
+}
+# alias yt='yt-dlp -f "bestvideo+bestaudio/best" --cookies-from-browser safari --merge-output-format mp4 --no-mtime'
+alias yt='yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc1]+bestaudio[ext=m4a]/best" --cookies-from-browser safari --merge-output-format mp4 --recode-video mp4 --no-mtime'
+alias gs='git status -sb'
