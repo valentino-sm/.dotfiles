@@ -5,6 +5,7 @@ local options = {
     -- html = { "prettier" },
     -- python = { "isort", "black" },
     python = { "isort", "black", "ruff_format" },
+    -- python = { "isort", "black", "ruff_format", "ruff_fix" },
   },
 
   default_format_opts = {
