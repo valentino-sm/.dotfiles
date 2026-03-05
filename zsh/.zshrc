@@ -172,5 +172,8 @@ newalias() {
   echo "✅ Алиас '$1' добавлен"
 }
 # alias yt='yt-dlp -f "bestvideo+bestaudio/best" --cookies-from-browser safari --merge-output-format mp4 --no-mtime'
-alias yt='yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc1]+bestaudio[ext=m4a]/best" --cookies-from-browser safari --merge-output-format mp4 --recode-video mp4 --no-mtime'
+# alias yt='yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc1]+bestaudio[ext=m4a]/best" --cookies-from-browser safari --merge-output-format mp4 --recode-video mp4 --no-mtime --extractor-args "youtube:player_client=web_safari"'
+alias yt-safari='yt-dlp -f "(bestvideo[vcodec^=avc1]/bestvideo[vcodec^=vp09]/bestvideo[vcodec^=av01])+bestaudio/best" --cookies-from-browser safari --merge-output-format mp4 --recode-video mp4 --no-mtime --extractor-args "youtube:player_client=web_safari" --postprocessor-args "ffmpeg:-c:v libx264 -pix_fmt yuv420p -crf 20 -c:a aac -b:a 192k -movflags +faststart"'
+alias yt='yt-dlp -f "(bestvideo[vcodec^=avc1]/bestvideo[vcodec^=vp09]/bestvideo[vcodec^=av01])+bestaudio/best" --cookies-from-browser safari --merge-output-format mp4 --recode-video mp4 --no-mtime --postprocessor-args "ffmpeg:-c:v libx264 -pix_fmt yuv420p -crf 20 -c:a aac -b:a 192k -movflags +faststart"'
+
 alias gs='git status -sb'
