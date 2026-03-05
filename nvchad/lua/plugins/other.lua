@@ -41,10 +41,14 @@ return {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
     opts = function(_, opts)
       vim.opt.fillchars:append { diff = "╱" }
-      opts.enhanced_diff_hl = true
+      -- opts.enhanced_diff_hl = true
+    end,
+    config = function(_, opts)
+      require("diffview").setup(opts)
+      vim.api.nvim_set_hl(0, "DiffviewDiffChange", { bg = "#34323B", fg = "#FAE3B0" })
+      vim.api.nvim_set_hl(0, "DiffviewDiffText", { bg = "#2B3D50", fg = "#89B4FA" })
     end,
   },
 
