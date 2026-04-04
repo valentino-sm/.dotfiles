@@ -15,14 +15,12 @@ return {
     opts = function(_, opts)
       table.insert(opts.extensions_list, "fzf")
       opts.extensions = opts.extensions or {}
-      table.insert(opts.extensions, {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-        },
-      })
+      opts.extensions.fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      }
     end,
   },
 
@@ -41,12 +39,9 @@ return {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = function(_, opts)
+    config = function()
       vim.opt.fillchars:append { diff = "╱" }
-      -- opts.enhanced_diff_hl = true
-    end,
-    config = function(_, opts)
-      require("diffview").setup(opts)
+      require("diffview").setup {}
       vim.api.nvim_set_hl(0, "DiffviewDiffChange", { bg = "#34323B", fg = "#FAE3B0" })
       vim.api.nvim_set_hl(0, "DiffviewDiffText", { bg = "#2B3D50", fg = "#89B4FA" })
     end,
@@ -67,9 +62,9 @@ return {
 
   {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    version = "*",
     event = "VeryLazy",
-    config = function() require("nvim-surround").setup {} end,
+    opts = {},
   },
 
   {
@@ -87,7 +82,6 @@ return {
     end,
   },
 
-  -- Highlight letter when find
   {
     "jinh0/eyeliner.nvim",
     event = "BufReadPre",
@@ -102,17 +96,6 @@ return {
     cmd = "MasonUpdateAll",
     config = true,
   },
-
-  -- {
-  --   -- "andreadev-it/shade.nvim",
-  --   -- dir = "/root/ghq/github.com/andreadev-it/Shade.nvim",
-  --   "valentino-sm/shade.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     overlay_opacity = 70,
-  --     exclude_filetypes = { "NvimTree", "nvdash" },
-  --   },
-  -- },
 
   {
     "ethanholz/nvim-lastplace",
@@ -144,26 +127,5 @@ return {
     },
   },
   { "valentino-sm/nvim-lspimport" },
-  -- Heuristic buffer auto-close
-  { "axkirillov/hbac.nvim",                     config = true },
-
-  -- Rust
-  -- {
-  --   "mrcjkb/rustaceanvim",
-  --   version = "^4", -- Recommended
-  --   lazy = false,   -- This plugin is already lazy
-  --   config = function()
-  --     local utils = require "core.utils"
-  --     vim.g.rustaceanvim = {
-  --       server = {
-  --         -- Load existing mappings from nvchad
-  --         on_attach = function(client, bufnr)
-  --           utils.load_mappings("lspconfig", { buffer = bufnr })
-  --
-  --           if client.server_capabilities.signatureHelpProvider then require("nvchad.signature").setup(client) end
-  --         end,
-  --       },
-  --     }
-  --   end,
-  -- },
+  { "axkirillov/hbac.nvim", config = true },
 }

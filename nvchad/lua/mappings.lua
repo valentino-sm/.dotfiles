@@ -3,8 +3,6 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 local unmap = vim.keymap.del
 
--- map("i", "jk", "<ESC>")
-
 ---@type MappingsTable
 local M = {}
 
@@ -21,75 +19,29 @@ local sections = {
   t = "Terminal",
 }
 
-M.disabled = {
-  i = {
-    ["<C-b>"] = { --[[  "<ESC>^i", "Beginning of line"  ]]
-    },
-  },
+-- Remove NvChad default keymaps that conflict with custom ones
+local disabled = {
+  i = { "<C-b>" },
   n = {
-    ["<leader>b"] = { --[[  "<cmd> enew <CR>", "New buffer"  ]]
-    },
-    ["<leader>ch"] = { --[[  "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet"  ]]
-    },
-    ["<leader>n"] = { --[[  "<cmd> set nu! <CR>", "Toggle line number"  ]]
-    },
-    ["<leader>rn"] = { --[[  "<cmd> set rnu! <CR>", "Toggle relative number"  ]]
-    },
-
-    -- gitsigns
-    -- ["<leader>rh"] = { --[[  function() require("gitsigns").reset_hunk() end, "Reset hunk"  ]]
-    -- },
-    -- ["<leader>ph"] = { --[[  function() require("gitsigns").preview_hunk() end, "Preview hunk"  ]]
-    -- },
-    -- ["<leader>td"] = { --[[  function() require("gitsigns").toggle_deleted() end, "Toggle deleted"  ]]
-    -- },
-
-    -- telescope
-    ["<leader>cm"] = { --[[  "<cmd> Telescope git_commits <CR>", "Git commits"  ]]
-    },
-    ["<leader>th"] = { --[[  "<cmd> Telescope themes <CR>", "Nvchad themes"  ]]
-    },
-    ["<leader>pt"] = { --[[  "<cmd> Telescope terms <CR>", "Pick hidden term"  ]]
-    },
-    ["<leader>ma"] = { --[[  "<cmd> Telescope marks <CR>", "telescope bookmarks"  ]]
-    },
-
-    -- lsp
-    -- ["<leader>D"] = { --[[  function() vim.lsp.buf.type_definition() end, "LSP definition type"  ]]
-    -- },
-    -- ["<leader>ra"] = { --[[  function() require("nvchad.renamer").open() end, "LSP rename"  ]]
-    -- },
-    -- ["<leader>ca"] = { --[[  function() vim.lsp.buf.code_action() end, "LSP code action"  ]]
-    -- },
-    -- ["gr"] = { --[[  function() vim.lsp.buf.references() end, "LSP references"  ]]
-    -- },
-
-    -- nvterm
-    ["<leader>h"] = { --[[  function() require("nvchad.term").new "horizontal" end, "New horizontal term"  ]]
-    },
-    ["<leader>v"] = { --[[  function() require("nvchad.term").new "vertical" end, "New vertical term"  ]]
-    },
-
-    -- blankline
-    ["<leader>cc"] = { --[[  "Jump to current context"  ]]
-    },
+    "<leader>b",
+    "<leader>ch",
+    "<leader>n",
+    "<leader>rn",
+    "<leader>cm",
+    "<leader>th",
+    "<leader>pt",
+    "<leader>ma",
+    "<leader>h",
+    "<leader>v",
+    "<leader>cc",
   },
-  -- v = {
-  --   ["<leader>ca"] = { --[[  function() vim.lsp.buf.code_action() end, "LSP code action"  ]]
-  --   },
-  -- },
 }
 
--- Remove all keymaps
-for mode, tbl in pairs(M.disabled) do
-  for key, _ in pairs(tbl) do
-    -- print(mode, key)
-    pcall(del, mode, key)
-    -- unmap(mode, key)
+for mode, keys in pairs(disabled) do
+  for _, key in ipairs(keys) do
+    pcall(unmap, mode, key)
   end
 end
-
-M.disabled = {}
 
 M.general = {
   i = {
@@ -109,10 +61,8 @@ M.general = {
     ["<C-Left>"] = { function() require("smart-splits").resize_left() end, "Resize split left" },
     ["<C-Right>"] = { function() require("smart-splits").resize_right() end, "Resize split right" },
 
-    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>q"] = { "<cmd>confirm q<cr>", "Quit" },
     ["<C-q>"] = { "<cmd>confirm qall<cr>", "Quit all" },
-    -- ["<C-q>"] = { "<cmd>qa!<cr>", "Force quit" },
     ["<leader>n"] = { "<cmd>enew<cr>", "New File" },
     ["|"] = { "<cmd>vsplit<cr>", "Vertical Split" },
     ["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
@@ -211,7 +161,6 @@ M.ui = {
     ["<leader>un"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>ur"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
     ["<leader>ut"] = { "<cmd> set list! <CR>", "Toggle invisible chars" },
-    -- Toggle wrap
     ["<leader>uw"] = { "<cmd> set wrap! <CR>", "Toggle line wrap" },
   },
 }
@@ -269,24 +218,20 @@ M.gitsigns = {
 
     ["<leader>gb"] = { "<cmd>Gitsigns blame_line<cr>", "Open git blame line" },
     ["<leader>gB"] = { "<cmd>Gitsigns blame<cr>", "Open git blame" },
-
   },
 }
 
 M.lspconfig = {
-  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
   n = {
     ["gd"] = { function() require("telescope.builtin").lsp_definitions() end, "LSP definition" },
     ["<leader>ld"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
     ["<leader>lf"] = { function() vim.lsp.buf.format { async = true, timeout = 5000 } end, "LSP formatting" },
     ["<leader>fm"] = {
-      -- function() vim.lsp.buf.format { async = true, timeout = 5000 } end,
       function() require("conform").format { async = true, timeout = 5000 } end,
       "LSP formatting",
     },
     ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
     ["<leader>lt"] = { function() require("telescope.builtin").lsp_type_definitions() end, "LSP definition type" },
-    -- ["<leader>lr"] = { function() require("nvchad.renamer").open() end, "LSP rename" },
     ["<leader>lr"] = { function() vim.lsp.buf.rename() end, "LSP rename" },
     ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
     ["<leader>lR"] = { function() require("telescope.builtin").lsp_references() end, "LSP references" },
@@ -321,7 +266,6 @@ M.nvterm = {
     ["<A-h>"] = { function() require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" } end, "Toggle horizontal term" },
     ["<A-v>"] = { function() require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" } end, "Toggle vertical term" },
 
-    -- new
     ["<leader>tf"] = { function() require("nvchad.term").new { pos = "float" } end, "New floating term" },
     ["<leader>th"] = { function() require("nvchad.term").new { pos = "sp" } end, "New horizontal term" },
     ["<leader>tv"] = { function() require("nvchad.term").new { pos = "vsp" } end, "New vertical term" },
@@ -330,31 +274,10 @@ M.nvterm = {
   },
 }
 
-M.blankline = {
-  n = {
-    ["gj"] = {
-      function()
-        local ok, start = require("indent_blankline.utils").get_current_context(
-          vim.g.indent_blankline_context_patterns,
-          vim.g.indent_blankline_use_treesitter_scope
-        )
-
-        if ok then
-          vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-          vim.cmd [[normal! _]]
-        end
-      end,
-
-      "Jump to current context",
-    },
-  },
-}
-
 -- Set all keymaps
 for category, tbl in pairs(M) do
   for mode, tbl in pairs(tbl) do
     for key, val in pairs(tbl) do
-      -- print(mode, key, val[1], val[2])
       map(mode, key, val[1], { desc = val[2] })
     end
   end

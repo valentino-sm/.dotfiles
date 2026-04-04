@@ -3,7 +3,6 @@ local overrides = require "configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
 
-  -- Override plugin definition options
   {
     "folke/which-key.nvim",
     lazy = false,
@@ -14,17 +13,14 @@ local plugins = {
     config = function()
       require "nvchad.configs.lspconfig"
       require "configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
 
   {
     "stevearc/conform.nvim",
     opts = require "configs.conform",
   },
-  --   "yaybrianna/null-ls.nvim",
-  --   config = function() require "configs.null-ls" end,
-  -- },
-  -- override plugin configs
+
   {
     "williamboman/mason.nvim",
     opts = overrides.mason,
@@ -35,7 +31,6 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- Install a plugin
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -70,16 +65,6 @@ local plugins = {
       },
     },
   },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
-
-  -- load luasnips + cmp related in insert mode only
 }
 
 return plugins

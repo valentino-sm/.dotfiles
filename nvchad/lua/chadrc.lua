@@ -1,7 +1,5 @@
 ---@type ChadrcConfig
 
-vim.cmd("highlight St_relativepath guifg=#626a83 guibg=#2f2e47")
-
 local stbufnr = function()
   return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
 end
@@ -9,7 +7,6 @@ end
 local M = {}
 
 M.ui = {
-  statusline = require "configs.statusline",
   statusline = {
     theme = "default",
     order = { "mode", "relativepath", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
@@ -52,7 +49,6 @@ M.nvdash = {
   },
 }
 
--- Path to overriding theme and highlights files
 local highlights = require "highlights"
 
 M.base46 = {
@@ -67,9 +63,5 @@ M.base46 = {
     "rainbowdelimiters",
   },
 }
--- M.plugins = "plugins"
-
--- check core.mappings for table structure
--- M.mappings = require "mappings"
 
 return M
