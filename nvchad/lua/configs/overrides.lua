@@ -1,43 +1,5 @@
 local M = {}
 
-M.treesitter = {
-  ensure_installed = {
-    "json",
-    "yaml",
-    "toml",
-    "bash",
-    "python",
-    "go",
-    "rust",
-    "requirements",
-    "vimdoc",
-    "dockerfile",
-    "gitignore",
-    "gitattributes",
-    "gitcommit",
-    "git_rebase",
-    "git_config",
-    "make",
-
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "tsx",
-    "c",
-    "markdown",
-    "markdown_inline",
-  },
-  indent = {
-    enable = true,
-    -- disable = {
-    --   "python"
-    -- },
-  },
-}
-
 M.mason = {
   ensure_installed = {
     -- bash stuff

@@ -1,17 +1,39 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  event = { "BufReadPost", "BufNewFile" },
+  build = ":TSUpdate",
   dependencies = {
-    { "nvim-treesitter/nvim-treesitter-textobjects" },
+    { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
     { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
     { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
   },
-  opts = function(_, opts)
-    local overrides = require "configs.overrides"
-    opts = vim.tbl_deep_extend("force", opts, overrides.treesitter)
+  config = function()
+    pcall(function()
+      dofile(vim.g.base46_cache .. "syntax")
+      dofile(vim.g.base46_cache .. "treesitter")
+    end)
+
     vim.g.skip_ts_context_commentstring_module = true
-    opts.textobjects = {
+
+    require("nvim-treesitter").install {
+      "json", "yaml", "toml", "bash", "python", "go", "rust",
+      "requirements", "vimdoc", "dockerfile", "gitignore", "gitattributes",
+      "gitcommit", "git_rebase", "git_config", "make",
+      "vim", "lua", "luadoc", "printf", "html", "css",
+      "javascript", "typescript", "tsx", "c",
+      "markdown", "markdown_inline",
+    }
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+
+    require("nvim-treesitter-textobjects").setup {
       select = {
-        enable = true,
         lookahead = true,
         keymaps = {
           ["ak"] = { query = "@block.outer", desc = "around block" },
@@ -20,8 +42,8 @@ return {
           ["ic"] = { query = "@class.inner", desc = "inside class" },
           ["a?"] = { query = "@conditional.outer", desc = "around conditional" },
           ["i?"] = { query = "@conditional.inner", desc = "inside conditional" },
-          ["af"] = { query = "@function.outer", desc = "around function " },
-          ["if"] = { query = "@function.inner", desc = "inside function " },
+          ["af"] = { query = "@function.outer", desc = "around function" },
+          ["if"] = { query = "@function.inner", desc = "inside function" },
           ["al"] = { query = "@loop.outer", desc = "around loop" },
           ["il"] = { query = "@loop.inner", desc = "inside loop" },
           ["aa"] = { query = "@parameter.outer", desc = "around argument" },
@@ -29,7 +51,6 @@ return {
         },
       },
       move = {
-        enable = true,
         set_jumps = true,
         goto_next_start = {
           ["]k"] = { query = "@block.outer", desc = "Next block start" },
@@ -53,7 +74,6 @@ return {
         },
       },
       swap = {
-        enable = true,
         swap_next = {
           [">K"] = { query = "@block.outer", desc = "Swap next block" },
           [">F"] = { query = "@function.outer", desc = "Swap next function" },
@@ -66,6 +86,5 @@ return {
         },
       },
     }
-    return opts
   end,
 }
