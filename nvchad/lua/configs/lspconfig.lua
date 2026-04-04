@@ -1,11 +1,12 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+vim.lsp.config("*", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 
--- if you just want default config for the servers then put them in a table
-local servers = {
-  -- "lua_ls", # nvchad does this itself
+vim.lsp.enable {
   "gopls",
   "yamlls",
   "dockerls",
@@ -16,10 +17,3 @@ local servers = {
   "ts_ls",
   "clangd",
 }
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
